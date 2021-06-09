@@ -1,0 +1,31 @@
+html {
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/2560/1440?grayscale&blur=1') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%
+}
+
+.wrap {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%);
+
+}
+
+.sentence {
+  font-family: 'Lobster', cursive;
+  font-size: 48px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.1),
+    5px 15px 5px rgba(0, 0, 0, 0.10),
+    -5px 15px 5px rgba(0, 0, 0, 0.10);
+}
+
+.sentence .word {
+  display: inline-block;
+  /*overflow: hidden;*/
+  height: 1em;
+  margin: 0 0.1em;
+}
