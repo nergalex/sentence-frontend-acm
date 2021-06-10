@@ -83,7 +83,7 @@ virtualServer:
   routes:
      - path: /
        action:
-         pass: arcadia-users
+         pass: sentence-frontend
 
 
 resources: {}
