@@ -24,7 +24,7 @@
             $PREFIX = getenv('PREFIX');
             $NS = getenv('NAMESPACE');
             $url='http://'.$PREFIX.'-generator.'.$NS.'/name';
-            console.log($url);
+            echo console.log($url);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL,$url);
