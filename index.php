@@ -10,28 +10,37 @@
         <title>Random Name Generator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-        <link href="./css/style.css" rel="stylesheet">    
+        <link href="./css/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./scripts/script.js"></script>
     </head>
-    <boby>
-        <table style="height: 72px;" width="100%">
-            <tr>
-            <td style="width: auto;"><img src="./images/shape.png" alt="" /></td>
-            <td style="width: auto;"><img src="./images/f5nginx.png" alt="" /></td>
-            <td style="width: auto;"><img src="./images/volterra.png" alt="" /></td>
-            </tr>  
-        </table>
-        <?php
-            $PREFIX = getenv('PREFIX');
-            $NS = getenv('NAMESPACE');
-            $url='http://'.$PREFIX.'-generator.'.$NS.'/name';
-            echo console.log($url);
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL,$url);
-            $result=curl_exec($ch);
-            curl_close($ch);
-            $generated_name=json_decode($result, true);
-            echo '<h1 style="font-family:Courier; color:green;">'.$generated_name['adjectives'].' '.$generated_name['animals'].' of the '.$generated_name['colors'].' '.$generated_name['locations'].'</h1>';
-        ?>
+    <body>
+        <div class=wrap>
+            <?php
+                $PREFIX = getenv('PREFIX');
+                $NS = getenv('NAMESPACE');
+                $url='http://'.$PREFIX.'-generator.'.$NS.'/name';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_URL,$url);
+                $result=curl_exec($ch);
+                curl_close($ch);
+                $generated_name=json_decode($result, true);
+                echo '<h1 class=sentence>'.$generated_name['adjectives'].' '.$generated_name['animals'].' of the '.$generated_name['colors'].' '.$generated_name['locations'].'</h1>';
+            ?>
+        </div>
     </body>
-</body>
+    <footer>
+        <div class=logos>
+            <div class=img>
+                <img src="./images/shape.png">
+            </div>       
+            <div class=img>
+                <img src="./images/f5nginx.png">
+            </div>
+            <div class=img>
+                <img src="./images/volterra.png">
+            </div>    
+        </div>
+    </footer>
+</html>

@@ -27,6 +27,8 @@ RUN mkdir /var/www/html/css
 COPY style.css /var/www/html/css
 RUN mkdir /var/www/html/images
 COPY ./images /var/www/html/images
+RUN mkdir /var/www/html/scripts
+COPY script.js /var/www/html/scripts
 
 # Enable apache mods.
 RUN apt-get install locales
