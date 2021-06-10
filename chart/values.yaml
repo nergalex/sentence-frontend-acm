@@ -77,13 +77,13 @@ virtualServer:
   #   redirect:
   #     enable: true
   upstreams:
-    # - name: arcadia-users
-    #   service: arcadia-users
-    #   port: 80
+     - name: sentence-frontend
+       service: sentence-frontend
+       port: 80
   routes:
-    # - path: /v1/user
-    #   action:
-    #     pass: arcadia-users
+     - path: /
+       action:
+         pass: arcadia-users
 
 
 resources: {}

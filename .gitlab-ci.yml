@@ -5,7 +5,7 @@ stages:
 
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
-  HELM_RELEASE: arcadia-$CI_PROJECT_NAME
+  HELM_RELEASE: sentence-$CI_PROJECT_NAME
 
 Build Image:
   stage: build
