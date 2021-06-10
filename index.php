@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="./scripts/script.js"></script>
     </head>
     <body>
@@ -33,14 +34,17 @@
     <footer>
         <div class=logos>
             <div class=img>
-                <img src="./images/shape.png">
+                <img src="./images/f5.png">
             </div>       
             <div class=img>
-                <img src="./images/f5nginx.png">
+                <img src="./images/nginx.png">
+            </div>
+            <div class=img>
+                <img src="./images/shape.png">
             </div>
             <div class=img>
                 <img src="./images/volterra.png">
-            </div>    
+            </div>   
         </div>
     </footer>
 </html>
