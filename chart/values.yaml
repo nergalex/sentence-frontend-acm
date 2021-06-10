@@ -17,8 +17,8 @@ image:
     path: /
     port: 8080
   env:
-  - name: NAMESPACE
-    value: frontend
+  # - name: value
+    
 
 imagePullSecret: ""
 nameOverride: ""
