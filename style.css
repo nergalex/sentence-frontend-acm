@@ -1,5 +1,5 @@
 html {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/2560/1440?grayscale&blur=1') no-repeat center center fixed;
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('https://picsum.photos/1920/1080?grayscale&blur=1') no-repeat center center fixed;
   background-size: cover;
   height: 100%
 }

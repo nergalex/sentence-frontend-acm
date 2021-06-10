@@ -13,14 +13,12 @@
         <link href="./css/style.css" rel="stylesheet">    
     </head>
     <boby>
-        <table style="height: 72px;" width="498">
-            <tbody>
+        <table style="height: 72px;" width="100%">
             <tr>
-            <td style="width: 158px;"><img src="./images/shape.png" alt="" /></td>
-            <td style="width: 159px;"><img src="./images/f5nginx.png" alt="" /></td>
-            <td style="width: 159px;"><img src="./images/volterra.png" alt="" /></td>
-            </tr>
-            </tbody>
+            <td style="width: auto;"><img src="./images/shape.png" alt="" /></td>
+            <td style="width: auto;"><img src="./images/f5nginx.png" alt="" /></td>
+            <td style="width: auto;"><img src="./images/volterra.png" alt="" /></td>
+            </tr>  
         </table>
         <?php
             $NS = getenv('NAMESPACE');
