@@ -18,10 +18,14 @@
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_URL,$url);
-                $result=curl_exec($ch);
-                curl_close($ch);
-                $generated_name=json_decode($result, true);
-                echo '<h1 class=sentence>'.$generated_name['adjectives'].' '.$generated_name['animals'].' of the '.$generated_name['colors'].' '.$generated_name['locations'].'</h1>';
+                try {
+                    $result=curl_exec($ch);
+                    curl_close($ch);
+                    $generated_name=json_decode($result, true);
+                    echo '<h1 class=sentence>'.$generated_name['adjectives'].' '.$generated_name['animals'].' of the '.$generated_name['colors'].' '.$generated_name['locations'].'</h1>';
+                } catch (Exception $e) {
+                    echo 'Caught exception: ',  $e->getMessage(), "\n";
+                }
             ?>
         </div>
     </body>
