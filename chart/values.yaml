@@ -56,7 +56,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: test.20.71.23.36.nip.io
+    - host: test.20.82.40.183.nip.io
       paths:
       - path: /
         backend:
