@@ -6,7 +6,7 @@
         <link href="./css/style.css" rel="stylesheet">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <script type="text/javascript" src="./scripts/script.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
     </head>
     <body>
         <div class=bg></div>
