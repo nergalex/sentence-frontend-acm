@@ -18,7 +18,7 @@ $('.sentence').each(function() {
   });
   
   anime.timeline({
-      loop: false
+      loop: true
     })
     .add({
       targets: '.sentence .word',
