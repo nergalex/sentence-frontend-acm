@@ -17,16 +17,16 @@ $('.sentence').each(function() {
     }
   });
   
-  anime.timeline({
-      loop: true
-    })
-    .add({
-      targets: '.sentence .word',
-      translateY: [110, 0],
-      opacity: [0, 1],
-      easing: "easeOutExpo",
-      duration: 1400,
-      delay: anime.stagger(250)
-    });
+anime.timeline({
+    loop: true
+})
+.add({
+    targets: '.sentence .word',
+    translateY: [110, 0],
+    opacity: [0, 1],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: anime.stagger(250)
+});
   
   
