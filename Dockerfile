@@ -22,13 +22,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # to be able to use "nano" with shell on "docker exec -it [CONTAINER ID] bash"
 ENV TERM xterm
 
-COPY index.php /var/www/html
-RUN mkdir /var/www/html/css
-COPY style.css /var/www/html/css
-RUN mkdir /var/www/html/images
-COPY ./images /var/www/html/images
-RUN mkdir /var/www/html/js
-COPY script.js /var/www/html/js
+COPY ./html /var/www/html
 
 # Enable apache mods.
 RUN apt-get install locales
