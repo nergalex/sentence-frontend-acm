@@ -96,11 +96,11 @@
                             echo "<script>console.log(".$error_msg.")</script>";
                         }
                         $generated_name=json_decode($result, true);
-                        echo '<td><h1 class=sentence>'.$generated_name['adjectives'].'A</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['animals'].'B</h1></td>';
+                        echo '<td><h1 class=sentence>'.$generated_name['adjectives'].'</h1></td>';
+                        echo '<td><h1 class=sentence>'.$generated_name['animals'].'</h1></td>';
                         echo '<td><h1 class=sentence>of the</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['colors'].'C</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['locations'].'D</h1></td>';
+                        echo '<td><h1 class=sentence>'.$generated_name['colors'].'</h1></td>';
+                        echo '<td><h1 class=sentence>'.$generated_name['locations'].'</h1></td>';
 
                         echo "<script>console.log(".json_encode($_POST).")</script>";
                         if (! empty($_POST["send"])) {
