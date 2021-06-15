@@ -7,8 +7,9 @@ $(document).ready(function(e) {
         $('body').show();
         $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(https://picsum.photos/1920/1080?grayscale&blur=1) no-repeat center center fixed');
         $('.bg').css('background-size', 'cover');
-        // $('.bg').fadeIn(1000);
-        wordAnimation();
+        $('.bg').fadeIn(1000, function(){
+           wordAnimation(); 
+        });
     });
 
     // Wrap every word in a span   
@@ -114,13 +115,6 @@ function wordAnimation(){
         loop: false
     });
 
-    animTimeline.add({
-        targets: '.bg',
-        opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 1400
-    });
-    
     animTimeline.add({
         targets: '.sentence .word',
         translateY: [110, 0],
