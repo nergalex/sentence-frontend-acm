@@ -142,8 +142,8 @@
                             curl_close($ch2);
 
                             echo '<div id="success">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
-                            unset($_POST);
-                            echo '<script type="text/javascript">location.reload();</script>';
+                            unset($_POST["send"]);
+                            echo '<script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script>';
                         }
                     ?>
                 </tr>
