@@ -6,6 +6,7 @@
         <link href="./css/style.css" rel="stylesheet">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="https://kit.fontawesome.com/556c5d2f1b.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="./js/script.js"></script>
     </head>
     <body>
@@ -140,12 +141,13 @@
                             echo '<script>console.log("res: '.$res.'");</script>';
                             curl_close($ch2);
 
-                            echo '<div id="success">Your new word '.$word.' as been successfully posted!</div>';
+                            echo '<div id="success">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
+                            $_POST = [];
                         }
                     ?>
                 </tr>
                 <tr>
-                    <td align=center><h2 class="plus-icon" id="adjective">+</h2></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="adjective"></i></td>
                     <td align=center><h2 class="plus-icon" id="animal">+</h2></td>
                     <td align=center><div></div></td>
                     <td align=center><h2 class="plus-icon" id="color">+</h2></td>
