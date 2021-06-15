@@ -143,6 +143,7 @@
 
                             echo '<div id="success">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
                             unset($_POST);
+                            echo '<script type="text/javascript">location.reload();</script>';
                         }
                     ?>
                 </tr>
@@ -151,7 +152,7 @@
                     <td align=center><i class="fas fa-plus plus-icon" id="animal"></i></td>
                     <td align=center><div></div></td>
                     <td align=center><i class="fas fa-plus plus-icon" id="color"></i></td>
-                    <td align=center><<i class="fas fa-plus plus-icon" id="location"></i></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="location"></i></td>
                 </tr>
             </table>
    
