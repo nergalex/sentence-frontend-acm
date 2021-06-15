@@ -134,14 +134,17 @@
                             curl_setopt($ch2, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                             #echo '<script>console.log("curl opts: '.$ch2.'");</script>';
                             $res=curl_exec($ch2);
-                            $curl_info = json_encode(curl_getinfo($ch2));
-                            $curl_error = json_encode(curl_error($ch2));
-                            echo '<script>console.log("error: '.$curl_error.'");</script>';
-                            echo '<script>console.log("info: '.$curl_info.'");</script>';
-                            echo '<script>console.log("res: '.$res.'");</script>';
+                            if (curl_errno($ch2)) {
+                                $error_msg = curl_error($ch2);
+                            }
                             curl_close($ch2);
+                            
+                            if (isset($error_msg)) {
+                                echo "<script>console.log(".$error_msg.")</script>";
+                            } else {
+                                echo '<div style="opacity:0;" class="success-banner">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
+                            }
 
-                            echo '<div style="opacity:0;" class="success-banner">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
                             unset($_POST);
                             echo '<script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script>';
                         }

@@ -115,15 +115,6 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: '.success-banner',
-        opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 1400,
-        endDelay: 1000,
-        direction: 'alternate'
-    });
-
-    animTimeline.add({
         targets: '.word',
         translateY: [100, 0],
         opacity: [0, 1],
@@ -133,7 +124,7 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: '.plus-icon',
+        targets: ['.plus-icon', '.success-banner'],
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
