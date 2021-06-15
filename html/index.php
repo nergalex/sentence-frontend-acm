@@ -102,7 +102,7 @@
                         echo '<td><h1 class=sentence>'.$generated_name['colors'].'</h1></td>';
                         echo '<td><h1 class=sentence>'.$generated_name['locations'].'</h1></td>';
 
-                        echo "<script>console.log(".json_encode($_POST).")</script>";
+                        echo "<script>console.log(".json_encode($_POST).");</script>";
                         if (! empty($_POST["send"])) {
                             if (! empty($_POST["adjective"])) {
                                 $word = filter_var($_POST["adjective"], FILTER_SANITIZE_STRING);
@@ -142,7 +142,7 @@
                             curl_close($ch2);
 
                             echo '<div id="success">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
-                            unset($_POST["send"]);
+                            unset($_POST);
                             echo '<script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script>';
                         }
                     ?>
