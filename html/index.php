@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class=bg></div>
-        <div class="popup">
+        <div class="popup" id=adjective-popup>
             <form class="word-form" action="" id="adjective-form" method="post" enctype="application/json">
                 <h2>Add an adjective</h2>
                 <div>
