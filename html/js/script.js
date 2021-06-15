@@ -115,7 +115,7 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: '.sentence .word',
+        targets: '.word',
         translateY: [100, 0],
         opacity: [0, 1],
         easing: "easeOutExpo",
@@ -124,7 +124,7 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: '.plus-icon',
+        targets: '.plus-icon #success',
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
