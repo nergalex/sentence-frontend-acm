@@ -142,16 +142,16 @@
                             curl_close($ch2);
 
                             echo '<div id="success">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
-                            $_POST = [];
+                            unset($_POST);
                         }
                     ?>
                 </tr>
                 <tr>
                     <td align=center><i class="fas fa-plus plus-icon" id="adjective"></i></td>
-                    <td align=center><h2 class="plus-icon" id="animal">+</h2></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="animal"></i></td>
                     <td align=center><div></div></td>
-                    <td align=center><h2 class="plus-icon" id="color">+</h2></td>
-                    <td align=center><h2 class="plus-icon" id="location">+</h2></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="color"></i></td>
+                    <td align=center><<i class="fas fa-plus plus-icon" id="location"></i></td>
                 </tr>
             </table>
    
