@@ -32,8 +32,7 @@ $(document).ready(function(e) {
 
 
     $(".plus-icon#adjective").click(function () {
-        $(".popup.word-form.instructions").innerHTML = 'TEST124';
-        $(".popup").fadeIn(200);
+        $(".popup#adjective-popup").fadeIn(200);
         
     });
     //Contact Form validation on click event
@@ -52,7 +51,7 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#animal").click(function () {
-        $(".popup#animal-popup").show();
+        $(".popup#animal-popup").fadeIn(200);
     });
     //Contact Form validation on click event
     $("#animal-form").on("submit", function () {
@@ -70,8 +69,8 @@ $(document).ready(function(e) {
 
     });
 
-    $("#plus-color-icon").click(function () {
-        $("#color-popup").show();
+    $(".plus-icon#color").click(function () {
+        $(".poput#color-popup").show();
     });
     //Contact Form validation on click event
     $("#color-form").on("submit", function () {
@@ -89,8 +88,8 @@ $(document).ready(function(e) {
 
     });
 
-    $("#plus-location-icon").click(function () {
-        $("#location-popup").show();
+    $(".plus-icon#location").click(function () {
+        $(".popup#location-popup").show();
     });
     //Contact Form validation on click event
     $("#location-form").on("submit", function () {

@@ -10,72 +10,71 @@
     </head>
     <body>
         <div class=bg></div>
+        <div class="popup">
+            <form class="word-form" action="" id="adjective-form" method="post" enctype="application/json">
+                <h2>Add an adjective</h2>
+                <div>
+                    <div>
+                        <label>Adjective: </label><span id="adjective-info" class="info"></span>
+                    </div>
+                    <div>
+                        <input type="text" id="adjective-input" name="adjective" class="inputBox" />
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="send" name="send" value="Send" />
+                </div>
+            </form>
+        </div>
+        <div class="popup" id="animal-popup">
+            <form class="word-form" action="" id="animal-form" method="post" enctype="application/json">
+                <h2>Add an animal</h2>
+                <div>
+                    <div>
+                        <label>Animal: </label><span id="animal-info" class="info"></span>
+                    </div>
+                    <div>
+                        <input type="text" id="animal-input" name="animal" class="inputBox" />
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="send" name="send" value="Send" />
+                </div>
+            </form>
+        </div>
+        <div class="popup" id="color-popup">
+            <form class="word-form" action="" id="color-form" method="post" enctype="application/json">
+                <h2>Add an color</h2>
+                <div>
+                    <div>
+                        <label>Color: </label><span id="color-info" class="info"></span>
+                    </div>
+                    <div>
+                        <input type="text" id="color-input" name="color" class="inputBox" />
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="send" name="send" value="Send" />
+                </div>
+            </form>
+        </div>
+        <div class="popup" id="location-popup">
+            <form class="word-form" action="" id="location-form" method="post" enctype="application/json">
+                <h2>Add a location</h2>
+                <div>
+                    <div>
+                        <label>Location: </label><span id="location-info" class="info"></span>
+                    </div>
+                    <div>
+                        <input type="text" id="location-input" name="location" class="inputBox" />
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="send" name="send" value="Send" />
+                </div>
+            </form>
+        </div>
         <div class=wrap>
-            <div class="popup">
-                <form class="word-form" action="" id="adjective-form" method="post" enctype="application/json">
-                    <h2>Add an adjective</h2>
-                    <div>
-                        <div>
-                            <label>Adjective: </label><span id="adjective-info" class="info"></span>
-                        </div>
-                        <div>
-                            <input type="text" id="adjective-input" name="adjective" class="inputBox" />
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" id="send" name="send" value="Send" />
-                    </div>
-                </form>
-            </div>
-            <div class="popup" id="animal-popup">
-                <form class="word-form" action="" id="animal-form" method="post" enctype="application/json">
-                    <h2>Add an animal</h2>
-                    <div>
-                        <div>
-                            <label>Animal: </label><span id="animal-info" class="info"></span>
-                        </div>
-                        <div>
-                            <input type="text" id="animal-input" name="animal" class="inputBox" />
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" id="send" name="send" value="Send" />
-                    </div>
-                </form>
-            </div>
-            <div class="popup" id="color-popup">
-                <form class="word-form" action="" id="color-form" method="post" enctype="application/json">
-                    <h2>Add an color</h2>
-                    <div>
-                        <div>
-                            <label>Color: </label><span id="color-info" class="info"></span>
-                        </div>
-                        <div>
-                            <input type="text" id="color-input" name="color" class="inputBox" />
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" id="send" name="send" value="Send" />
-                    </div>
-                </form>
-            </div>
-            <div class="popup" id="location-popup">
-                <form class="word-form" action="" id="location-form" method="post" enctype="application/json">
-                    <h2>Add a location</h2>
-                    <div>
-                        <div>
-                            <label>Location: </label><span id="location-info" class="info"></span>
-                        </div>
-                        <div>
-                            <input type="text" id="location-input" name="location" class="inputBox" />
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" id="send" name="send" value="Send" />
-                    </div>
-                </form>
-            </div>
-
             <!-- Sentence -->
             <table>
                 <tr>
