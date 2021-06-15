@@ -105,24 +105,24 @@
                         if (! empty($_POST["send"])) {
                             if (! empty($_POST["adjective"])) {
                                 $word = filter_var($_POST["adjective"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'adjectives.'.$NS.'/adjectives';
+                                $postURL='http://'.$PREFIX.'-adjectives.'.$NS.'/adjectives';
                                 $payload = json_encode(array("name" => $word));
                             }
                             if (! empty($_POST["animal"])) {
                                 $word = filter_var($_POST["animal"], FILTER_SANITIZE_STRING);
                                 echo '<script>console.log("error: '.$word.'");</script>';
-                                $postURL='http://'.$PREFIX.'animals.'.$NS.'/animals';
+                                $postURL='http://'.$PREFIX.'-animals.'.$NS.'/animals';
                                 echo '<script>console.log("error: '.$postURL.'");</script>';
                                 $payload = json_encode(array( "name" => $word));
                             }
                             if (! empty($_POST["color"])) {
                                 $word = filter_var($_POST["color"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'colors.'.$NS.'/colors';
+                                $postURL='http://'.$PREFIX.'-colors.'.$NS.'/colors';
                                 $payload = json_encode(array( "name" => $word));
                             }
                             if (! empty($_POST["location"])) {
                                 $word = filter_var($_POST["location"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'locations.'.$NS.'/locations';
+                                $postURL='http://'.$PREFIX.'-locations.'.$NS.'/locations';
                                 $payload = json_encode(array( "name" => $word));
                             }
                             $ch2 = curl_init();
@@ -135,9 +135,9 @@
                             $res=curl_exec($ch2);
                             $curl_info = json_encode(curl_getinfo($ch2));
                             $curl_error = json_encode(curl_error($ch2));
-                            #echo '<script>console.log("error: '.$curl_error.'");</script>';
-                            #echo '<script>console.log("info: '.$curl_info.'");</script>';
-                            #echo '<script>console.log("res: '.$res.'");</script>';
+                            echo '<script>console.log("error: '.$curl_error.'");</script>';
+                            echo '<script>console.log("info: '.$curl_info.'");</script>';
+                            echo '<script>console.log("res: '.$res.'");</script>';
                             curl_close($ch2);
 
                             echo '<div id="success">Your new word '.$word.' as been successfully posted!</div>';
