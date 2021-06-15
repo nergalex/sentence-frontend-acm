@@ -124,7 +124,7 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: '.plus-icon #success',
+        targets: ['.plus-icon', '.success-banner'],
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
