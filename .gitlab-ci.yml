@@ -25,9 +25,9 @@ Build image:
       docker build 
       --pull 
       --cache-from ${IMAGE}:latest 
-      --tag ${IMAGE}:$CI_COMMIT_SHA
+      --tag ${IMAGE}:dev
       .
-    - docker push ${IMAGE}:$CI_COMMIT_SHA
+    - docker push ${IMAGE}:dev
 
 Build latest:
   image: docker:20
@@ -42,8 +42,8 @@ Build latest:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
-    - docker pull $IMAGE:$CI_COMMIT_SHA
-    - docker tag $IMAGE:$CI_COMMIT_SHA $IMAGE:latest
+    - docker pull $IMAGE:dev
+    - docker tag $IMAGE:dev $IMAGE:latest
     - docker push $IMAGE:latest
 
 Deploy review:
@@ -64,7 +64,7 @@ Deploy review:
     - >
       helm upgrade --install $HELM_RELEASE ./chart -n $KUBE_NAMESPACE 
       --set image.repository=${IMAGE} 
-      --set image.tag=latest  
+      --set image.tag=dev  
       --set imagePullSecret=gitlab-registry-${CI_PROJECT_PATH_SLUG} 
       --set image.env.NAMESPACE=production-api 
       --set image.env.PREFIX=sentence
