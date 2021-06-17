@@ -66,7 +66,7 @@ Deploy review:
       --set image.repository=${IMAGE} 
       --set image.tag=dev  
       --set imagePullSecret=gitlab-registry-${CI_PROJECT_PATH_SLUG} 
-      --set image.env.NAMESPACE=production-api 
+      --set image.env.NAMESPACE=development-api 
       --set image.env.PREFIX=sentence
       --set virtualServer.ingressClassName="nginx-dev"
       --set virtualServer.host="sentence-dev.$(kubectl -n ingress-nginx-dev get service ingress-nginx-dev -o jsonpath='{.status.loadBalancer.ingress[0].ip}' || true).nip.io"
