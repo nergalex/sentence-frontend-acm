@@ -5,6 +5,7 @@ metadata:
   name: {{ include "chart.fullname" . }}-vs
 spec:
   host: {{ .Values.virtualServer.host }}
+  ingressClassName: {{ .Values.virtualServer.ingressClassName }}
   {{- if .Values.virtualServer.tls }}
   tls:
     secret: {{ .Values.virtualServer.tls.secretName }}
