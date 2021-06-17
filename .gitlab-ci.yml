@@ -69,8 +69,7 @@ Deploy review:
       --set image.env.NAMESPACE=production-api 
       --set image.env.PREFIX=sentence
       --set virtualServer.ingressClassName="nginx-dev"
-      --set virtualServer.host="sentence.$(kubectl -n ingress-nginx-dev get service ingress-nginx-dev -o jsonpath='{.status.loadBalancer.ingress[0].ip}' || true).nip.io"
-
+      --set virtualServer.host="sentence-dev.$(kubectl -n ingress-nginx-dev get service ingress-nginx-dev -o jsonpath='{.status.loadBalancer.ingress[0].ip}' || true).nip.io"
 
 Deploy Production:
   stage: deploy
