@@ -1,0 +1,8 @@
+apiVersion: k8s.nginx.org/v1
+kind: Policy
+metadata:
+  name: sentence-app-waf
+spec:
+  waf:
+    enable: true
+    policy: /etc/app_protect/conf/NginxDefaultPolicy.json
