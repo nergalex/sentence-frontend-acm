@@ -21,6 +21,8 @@ spec:
   routes:
     {{- range .Values.virtualServer.routes }}
     - path: {{ .path }}
+      policies:
+      - sentence-app-waf
       action:
         {{ toYaml .action }}
     {{- end }}
