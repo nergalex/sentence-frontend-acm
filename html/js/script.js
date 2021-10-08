@@ -1,6 +1,8 @@
 
 $(document).ready(function(e) { 
     $('.bg').hide();
+    $('.sentence').hide();
+    $('.logos').hide();
     getSentence();
     
     $('<img/>').attr('src', 'https://picsum.photos/1920/1080?grayscale&blur=1').on('load', function() {
@@ -8,9 +10,12 @@ $(document).ready(function(e) {
         $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(https://picsum.photos/1920/1080?grayscale&blur=1) no-repeat center center fixed');
         $('.bg').css('background-size', 'cover');
         $('.bg').fadeIn(1000, function(){
-            wordAnimation(); 
+            $('.logos').fadeIn(1000)
+            //wordAnimation();    
         });
     });
+
+     
 
     $(".plus-icon#adjective").click(function () {
         $(".popup#adjective-popup").fadeIn(200);
@@ -91,6 +96,9 @@ $(document).ready(function(e) {
 });
 
 function wordAnimation(){
+
+    console.log("Word animation")
+    $('.sentence').show();
     
     var animTimeline = anime.timeline({
         loop: false
@@ -129,6 +137,7 @@ function getSentence(){
             }
         ).then(
             function(){
+                console.log("wrap started");
                 // Wrap every word in a span for animation  
                 $('.sentence').each(function() {
                     let text = $(this).text();
@@ -148,8 +157,9 @@ function getSentence(){
                     }
                 })
             }
-        );
-    
+        ).then(function(){
+            wordAnimation();
+        });
 }
 
 
