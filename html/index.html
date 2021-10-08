@@ -79,7 +79,12 @@
             <!-- Sentence -->
             <table>
                 <tr>
-                    <?php
+                    <td><h1 class=sentence id=adjective>adjective</h1></td>
+                    <td><h1 class=sentence id=animal>animal</h1></td>
+                    <td><h1 class=sentence style="white-space: nowrap;">of the</h1></td>
+                    <td><h1 class=sentence id=color>color</h1></td>
+                    <td><h1 class=sentence id=location>location</h1></td>
+                    <!-- <?php
                         $PREFIX = getenv('PREFIX');
                         $NS = getenv('NAMESPACE');
                         $url='http://'.$PREFIX.'-generator.'.$NS.'/name';
@@ -148,7 +153,7 @@
                             unset($_POST);
                             echo '<script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script>';
                         }
-                    ?>
+                    ?> -->
                 </tr>
                 <tr>
                     <td align=center><i class="fas fa-plus plus-icon" id="adjective"></i></td>

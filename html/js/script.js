@@ -1,6 +1,8 @@
 
-$(document).ready(function(e) {
+$(document).ready(function(e) { 
     $('.bg').hide();
+    getSentence();
+    
     $('<img/>').attr('src', 'https://picsum.photos/1920/1080?grayscale&blur=1').on('load', function() {
         $(this).remove(); // prevent memory leaks as @benweet suggested 
         $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(https://picsum.photos/1920/1080?grayscale&blur=1) no-repeat center center fixed');
@@ -9,26 +11,6 @@ $(document).ready(function(e) {
             wordAnimation(); 
         });
     });
-
-    // Wrap every word in a span   
-    $('.sentence').each(function() {
-        let text = $(this).text();
-        let words = text.split(' ');
-    
-        // Clear current element
-        this.innerHTML = '';
-    
-        // Loop through each word, wrap each letter in a span
-        for (let word of words) {
-            //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-    
-            console.log('<span class="word">' + word + '</span>');
-    
-            // Wrap another span around each word, add word to header
-            this.innerHTML += '<span class="word">' + word + '</span>';
-        }
-    });
-
 
     $(".plus-icon#adjective").click(function () {
         $(".popup#adjective-popup").fadeIn(200);
@@ -129,6 +111,45 @@ function wordAnimation(){
         easing: "easeOutExpo",
         duration: 1400,
     });
+}
+
+function getSentence(){
+    fetch('/api/sentence')
+        .then(
+            function(response) {
+                console.log(response.status);
+            
+                response.json().then(function(json){
+                    console.log(json);
+                    $(".sentence#adjective").replaceWith("<h1 class=sentence id=adjective>" + json.adjectives + "</h1>" );
+                    $(".sentence#animal").replaceWith("<h1 class=sentence id=animal>" + json.animals + "</h1>" );
+                    $(".sentence#color").replaceWith("<h1 class=sentence id=color>" + json.colors + "</h1>" );
+                    $(".sentence#location").replaceWith("<h1 class=sentence id=location>" + json.locations + "</h1>" );
+                });              
+            }
+        ).then(
+            function(){
+                // Wrap every word in a span for animation  
+                $('.sentence').each(function() {
+                    let text = $(this).text();
+                    let words = text.split(' ');
+                
+                    // Clear current element
+                    this.innerHTML = '';
+                
+                    // Loop through each word, wrap each letter in a span
+                    for (let word of words) {
+                        //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+                
+                        console.log('<span class="word">' + word + '</span>');
+                
+                        // Wrap another span around each word, add word to header
+                        this.innerHTML += '<span class="word">' + word + '</span>';
+                    }
+                })
+            }
+        );
+    
 }
 
 
