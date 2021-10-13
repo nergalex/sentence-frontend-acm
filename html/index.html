@@ -87,26 +87,7 @@
                     <!-- <?php
                         $PREFIX = getenv('PREFIX');
                         $NS = getenv('NAMESPACE');
-                        $url='http://'.$PREFIX.'-generator.'.$NS.'/name';
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        curl_setopt($ch, CURLOPT_URL,$url);
-                        $result=curl_exec($ch);
-                        if (curl_errno($ch)) {
-                            $error_msg = curl_error($ch);
-                        }
-                        curl_close($ch);
-                        
-                        if (isset($error_msg)) {
-                            echo "<script>console.log(".$error_msg.")</script>";
-                        }
-                        $generated_name=json_decode($result, true);
-                        echo '<td><h1 class=sentence>'.$generated_name['adjectives'].'</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['animals'].'</h1></td>';
-                        echo '<td><h1 class=sentence>of the</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['colors'].'</h1></td>';
-                        echo '<td><h1 class=sentence>'.$generated_name['locations'].'</h1></td>';
-
+ 
                         echo "<script>console.log(".json_encode($_POST).");</script>";
                         if (! empty($_POST["send"])) {
                             if (! empty($_POST["adjective"])) {
