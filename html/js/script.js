@@ -31,9 +31,9 @@ $(document).ready(function(e) {
             $("#adjective-info").html("required.");
             $("#adjective-input").addClass("input-error");
         }
-        postData('https://sentence-adjectives/adjectives', { name: adjective })
-        .then(data => {
-            console.log(data); // JSON data parsed by `data.json()` call
+        postData('api/sentence', { name: adjective })
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
         });
 
         return valid;
