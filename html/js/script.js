@@ -25,16 +25,20 @@ $(document).ready(function(e) {
         $(".info").html("");
         $("inputBox").removeClass("input-error");
 
-        var adjective = $("#adjective-input").val();
+        var adjective = santizeString($("#adjective-input").val());
+
+        console.log(adjective);
 
         if (adjective == "") {
             $("#adjective-info").html("required.");
             $("#adjective-input").addClass("input-error");
+        } else {
+            postData('api/sentence', { value: adjective })
+                .then(data => {
+                    console.log(data); // JSON data parsed by `data.json()` call
+            });
         }
-        postData('api/sentence', { name: adjective })
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-        });
+        
 
         return valid;
     });
@@ -175,8 +179,10 @@ async function postData(url = '', data = {}) {
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     return response.json(); // parses JSON response into native JavaScript objects
-  }
+}
 
-
- 
+function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
+} 
   
