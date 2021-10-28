@@ -20,12 +20,13 @@ $(document).ready(function(e) {
         
     });
     //Contact Form validation on click event
-    $("#adjective-form").on("submit", function () {
+    $("#adjective-form").on("submit", function (event) {
+        event.preventDefault();
         var valid = true;
         $(".info").html("");
         $("inputBox").removeClass("input-error");
 
-        var adjective = santizeString($("#adjective-input").val());
+        var adjective = sanitizeString($("#adjective-input").val());
 
         console.log(adjective);
 
@@ -33,7 +34,7 @@ $(document).ready(function(e) {
             $("#adjective-info").html("required.");
             $("#adjective-input").addClass("input-error");
         } else {
-            postData('/api/sentence', { value: adjective })
+            postData('/api/sentence/adjectives', { value: adjective })
                 .then(data => {
                     console.log(data); // JSON data parsed by `data.json()` call
             });
