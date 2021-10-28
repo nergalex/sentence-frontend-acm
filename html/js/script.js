@@ -33,7 +33,7 @@ $(document).ready(function(e) {
             $("#adjective-info").html("required.");
             $("#adjective-input").addClass("input-error");
         } else {
-            postData('api/sentence', { value: adjective })
+            postData('/api/sentence', { value: adjective })
                 .then(data => {
                     console.log(data); // JSON data parsed by `data.json()` call
             });
