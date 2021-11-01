@@ -40,8 +40,10 @@ $(document).ready(function(e) {
                     if (data.accepted) {
                         console.log("accepted");
                         $(".success-banner").html("test");
+                        $("#adjective-input").value = "";
                     } else {
                         console.log("not accepted");
+                        $("#adjective-info").html("not accepted");
                         $("#adjective-input").addClass("input-error");
                     };
             });
@@ -56,7 +58,11 @@ $(document).ready(function(e) {
     });
     //Contact Form validation on click event
     $("#animal-form").on("submit", function () {
-        var valid = true;
+        showPrompt("test123", "test", function(value) {
+                console.log("entered" + value)
+            }
+        );  
+        /* var valid = true;
         $(".info").html("");
         $("inputBox").removeClass("input-error");
 
@@ -66,7 +72,7 @@ $(document).ready(function(e) {
             $("#animal-info").html("required.");
             $("#animal-input").addClass("input-error");
         }
-        return valid;
+        return valid; */
 
     });
 
@@ -187,6 +193,59 @@ async function postData(url = '', data = {}) {
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function showPrompt(text, post_uri, callback){
+    let form = $("#prompt-form");
+    let container = $("#prompt-form-container");
+    $("#prompt-message").innerHTML = text;
+    form.text.value = "";
+
+    function complete(value) {
+        container.style.display = "none";
+        document.onkeydown = null;
+        callback(value);
+    }
+
+    form.onsubmit = function(event) {
+        console.log("submit");
+        let value = form.text.value;
+
+        if (value == "" ) return false;
+        
+        complete(value);
+        return false;
+    }
+
+    form.cancel.onclick = function() {
+        complete(null);
+    };
+
+    document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+            complete(null);
+        }
+    };
+
+    let lastElem = form.elements[form.elements.length - 1];
+    let firstElem = form.elements[0];
+
+    lastElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && !e.shiftKey) {
+            firstElem.focus();
+            return false;
+        }
+    };
+
+    firstElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && e.shiftKey) {
+            lastElem.focus();
+            return false;
+        }
+    };
+
+    container.style.display = 'block';
+    form.elements.text.focus();
 }
 
 function sanitizeString(str){
