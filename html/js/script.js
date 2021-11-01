@@ -205,7 +205,7 @@ function showPrompt(text, post_uri, callback){
         $("#prompt-form-container").fadeOut(200);
         document.onkeydown = null;
         callback(value);
-    }
+    };
 
     form.onsubmit = function(event) {
         console.log("submit");
@@ -215,7 +215,7 @@ function showPrompt(text, post_uri, callback){
         
         complete(value);
         return false;
-    }
+    };
 
     form.cancel.onclick = function(event) {
         complete(null);
