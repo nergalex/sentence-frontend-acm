@@ -217,7 +217,7 @@ function showPrompt(text, post_uri, callback){
         return false;
     }
 
-    form.cancel.onclick = function() {
+    form.cancel.onclick = function(event) {
         complete(null);
     };
 
