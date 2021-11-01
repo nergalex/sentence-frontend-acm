@@ -37,10 +37,13 @@ $(document).ready(function(e) {
             postData('/api/sentence/adjectives', { value: adjective })
                 .then(data => {
                     console.log(data); // JSON data parsed by `data.json()` call
-                    console.log(data.accepted)
                     if (data.accepted) {
-                        console.log("YEAY")
-                    }
+                        console.log("accepted");
+                        $(".success-banner").html("test");
+                    } else {
+                        console.log("not accepted");
+                        $("#adjective-input").addClass("input-error");
+                    };
             });
         }
         
