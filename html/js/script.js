@@ -196,8 +196,7 @@ async function postData(url = '', data = {}) {
 }
 
 function showPrompt(text, post_uri, callback){
-    form = $("#prompt-form");
-    //let form = document.getElementById('prompt-form');
+    let form = document.getElementById('prompt-form');
     let container = document.getElementById("prompt-form-container");
     $("#prompt-message").innerHTML = text;
     form.text.value = "";
@@ -246,7 +245,7 @@ function showPrompt(text, post_uri, callback){
     };
 
     container.fadeIn(200);
-    $("#prompt-form-container").fadeIn(200);
+    //$("#prompt-form-container").fadeIn(200);
     form.elements.text.focus();
 }
 
