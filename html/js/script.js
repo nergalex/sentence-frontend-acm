@@ -54,14 +54,14 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#animal").click(function () {
-        $(".popup#animal-popup").fadeIn(200);
+        showPrompt("test123", "test", function(value) {
+            console.log("entered" + value)
+        }
+    ); 
     });
     //Contact Form validation on click event
     $("#animal-form").on("submit", function () {
-        showPrompt("test123", "test", function(value) {
-                console.log("entered" + value)
-            }
-        );  
+         
         /* var valid = true;
         $(".info").html("");
         $("inputBox").removeClass("input-error");
@@ -202,7 +202,7 @@ function showPrompt(text, post_uri, callback){
     form.text.value = "";
 
     function complete(value) {
-        container.style.display = "none";
+        $("#prompt-form-container").fadeOut(200);
         document.onkeydown = null;
         callback(value);
     }
@@ -244,7 +244,8 @@ function showPrompt(text, post_uri, callback){
         }
     };
 
-    container.style.display = 'block';
+    container.fadeIn(200);
+    $("#prompt-form-container").fadeIn(200);
     form.elements.text.focus();
 }
 
