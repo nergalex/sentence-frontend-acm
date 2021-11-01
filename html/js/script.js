@@ -36,8 +36,9 @@ $(document).ready(function(e) {
         } else {
             postData('/api/sentence/adjectives', { value: adjective })
                 .then(data => {
-                    console.log(data.json()); // JSON data parsed by `data.json()` call
-                    if (data.json().accepted) {
+                    console.log(data); // JSON data parsed by `data.json()` call
+                    console.log(data.accepted)
+                    if (data.accepted) {
                         console.log("YEAY")
                     }
             });
