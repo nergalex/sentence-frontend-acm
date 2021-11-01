@@ -196,7 +196,8 @@ async function postData(url = '', data = {}) {
 }
 
 function showPrompt(text, post_uri, callback){
-    let form = $("#prompt-form");
+    //let form = $("#prompt-form");
+    let form = document.getElementById('prompt-form');
     let container = $("#prompt-form-container");
     $("#prompt-message").innerHTML = text;
     form.text.value = "";
@@ -217,7 +218,7 @@ function showPrompt(text, post_uri, callback){
         return false;
     };
 
-    form.cancel.onclick = function(event) {
+    form.cancel.onclick = function() {
         complete(null);
     };
 
