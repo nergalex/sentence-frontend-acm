@@ -46,7 +46,7 @@ function showBanner(message, word, success){
 
     if(success){
         $('.success-banner').addClass("success");
-        $('#success-banner-message').html("Success! Your word " + word + " was added!" )
+        $('#success-banner-message').html("Success! Your word " + word + " was added!" + message )
         $('#success-banner-image').addClass("fa-check-circle")
     } else {
         $('.success-banner').addClass("failure");
@@ -186,10 +186,10 @@ function showPrompt(text, word, post_uri, callback){
                 console.log(data); // JSON data parsed by `data.json()` call
                 if (data.accepted) {
                     console.log("accepted");
-                    showBanner("", data.value, true);
+                    showBanner(data.info, data.value, true);
                 } else {
                     console.log("not accepted");
-                    showBanner("test", data.value, false);
+                    showBanner(data.info, data.value, false);
                 };
             })
         ;
