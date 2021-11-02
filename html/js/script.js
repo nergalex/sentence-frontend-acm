@@ -1,9 +1,9 @@
-
 $(document).ready(function(e) { 
     $('.bg').hide();
     $('.sentence').hide();
     $('.logos').hide();
     getSentence();
+
     
     $('<img/>').attr('src', 'https://picsum.photos/1920/1080?grayscale&blur=1').on('load', function() {
         $(this).remove(); // prevent memory leaks as @benweet suggested 
@@ -16,106 +16,61 @@ $(document).ready(function(e) {
 
 
     $(".plus-icon#adjective").click(function () {
-        //$(".popup#adjective-popup").fadeIn(200);
         showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
-            console.log("entered" + value);
+            console.log("entered " + value);
+
         });
-    });
-    //Contact Form validation on click event
-    $("#adjective-form").on("submit", function (event) {
-        event.preventDefault();
-        var valid = true;
-        $(".info").html("");
-        $("inputBox").removeClass("input-error");
-
-        var adjective = sanitizeString($("#adjective-input").val());
-
-        console.log(adjective);
-
-        if (adjective == "") {
-            $("#adjective-info").html("required.");
-            $("#adjective-input").addClass("input-error");
-        } else {
-            postData('/api/sentence/adjectives', { value: adjective })
-                .then(data => {
-                    console.log(data); // JSON data parsed by `data.json()` call
-                    if (data.accepted) {
-                        console.log("accepted");
-                        $(".success-banner").html("test");
-                        $("#adjective-input").value = "";
-                    } else {
-                        console.log("not accepted");
-                        $("#adjective-info").html("not accepted");
-                        $("#adjective-input").addClass("input-error");
-                    };
-            });
-        }
-        
-
-        return valid;
     });
 
     $(".plus-icon#animal").click(function () {
         showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
-            console.log("entered" + value);
+            console.log("entered " + value);
         }); 
-    });
-    //Contact Form validation on click event
-    $("#animal-form").on("submit", function () {
-         
-        /* var valid = true;
-        $(".info").html("");
-        $("inputBox").removeClass("input-error");
-
-        var animal = $("#animal-input").val();
-
-        if (animal == "") {
-            $("#animal-info").html("required.");
-            $("#animal-input").addClass("input-error");
-        }
-        return valid; */
-
     });
 
     $(".plus-icon#color").click(function () {
         $(".poput#color-popup").show();
     });
-    //Contact Form validation on click event
-    $("#color-form").on("submit", function () {
-        var valid = true;
-        $(".info").html("");
-        $("inputBox").removeClass("input-error");
-
-        var color = $("#color-input").val();
-
-        if (color == "") {
-            $("#color-info").html("required.");
-            $("#color-input").addClass("input-error");
-        }
-        return valid;
-
-    });
 
     $(".plus-icon#location").click(function () {
         $(".popup#location-popup").show();
     });
-    //Contact Form validation on click event
-    $("#location-form").on("submit", function () {
-        var valid = true;
-        $(".info").html("");
-        $("inputBox").removeClass("input-error");
-
-        var location = $("#location-input").val();
-
-        if (location == "") {
-            $("#location-info").html("required.");
-            $("#location-input").addClass("input-error");
-        }
-        return valid;
-
-    });
 
 });
+
+function showBanner(message, word, success){
+
+    if(success){
+        $('.success-banner').addClass("success");
+        $('#success-banner-message').html("Success! Your word " + word + " was added!" )
+        $('#success-banner-image').addClass("fa-check-circle")
+    } else {
+        $('.success-banner').addClass("failure");
+        $('#success-banner-message').html("Failure! Your word " + word + " was not added! " + message )
+        $('#success-banner-image').addClass("fa-times-circle")
+    }
+
+    bannerAnimation();
+}
+
+function bannerAnimation(){
+    console.log("bannerAnimation");
+    $(".success-banner").show();
+
+    var bannerTimeline = anime.timeline({ 
+        targets: '.success-banner',
+        easing: "easeOutExpo",
+        duration: 1500,
+        delay: 1000,
+        endDelay: 5000,
+        loop: false
+    }).add({
+        translateY: [-100, 0]
+    }).add({
+        translateY: [0, -100]
+    });
+   
+}
 
 function wordAnimation(){
 
@@ -136,7 +91,7 @@ function wordAnimation(){
     });
 
     animTimeline.add({
-        targets: ['.plus-icon', '.success-banner'],
+        targets: ['.plus-icon'],
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
@@ -230,12 +185,10 @@ function showPrompt(text, word, post_uri, callback){
                 console.log(data); // JSON data parsed by `data.json()` call
                 if (data.accepted) {
                     console.log("accepted");
-                    $(".success-banner").html("test");
-                    $(".inputBox").value = "";
+                    showBanner("", data.value, true);
                 } else {
                     console.log("not accepted");
-                    $("#.info-info").html("not accepted");
-                    $(".inputBox").addClass("input-error");
+                    showBanner("test", data.value, false);
                 };
             })
         ;

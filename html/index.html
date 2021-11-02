@@ -12,6 +12,12 @@
     </head>
     <body>
         <div class=bg></div>
+
+        <div class="success-banner">
+            <span id="success-banner-message">Successbanner message</span>
+            <i id="success-banner-image" class="fas "></i>
+        </div>
+
         <div class="popup" id="prompt-form-container">
             <form class="word-form" id="prompt-form">
                 <div>
@@ -24,22 +30,6 @@
             </form>
         </div>
 
-        <div class="popup" id=adjective-popup>
-            <form class="word-form" id="adjective-form">
-                <h2>Add an adjective</h2>
-                <div>
-                    <div>
-                        <label>Adjective: </label><span id="adjective-info" class="info"></span>
-                    </div>
-                    <div>
-                        <input type="text" id="adjective-input" name="adjective" class="inputBox" />
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" id="adjective-post" name="service" value="adjectives" />
-                </div>
-            </form>
-        </div>
         <div class=wrap>
             <!-- Sentence -->
             <table>
@@ -49,7 +39,7 @@
                     <td><h1 class=sentence style="white-space: nowrap;">of the</h1></td>
                     <td><h1 class=sentence id=color>color</h1></td>
                     <td><h1 class=sentence id=location>location</h1></td>
-                    <div style="opacity:0;" class="success-banner">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>
+                    
                     <!-- <?php
                         $PREFIX = getenv('PREFIX');
                         $NS = getenv('NAMESPACE');
