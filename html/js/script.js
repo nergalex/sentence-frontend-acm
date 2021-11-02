@@ -54,7 +54,7 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#animal").click(function () {
-        showPrompt("test123", "test", function(value) {
+        showPrompt("Add an animal", "animal", "example.com", function(value) {
             console.log("entered" + value)
         }
     ); 
@@ -195,10 +195,11 @@ async function postData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function showPrompt(text, post_uri, callback){
+function showPrompt(text, word, post_uri, callback){
     let form = document.getElementById('prompt-form');
     let container = document.getElementById("prompt-form-container");
-    $("#prompt-message").innerHTML = text;
+    $("#prompt-message").innerHTML = "<h2>" + text + "</h2>";
+    $("#prompt-label").innerHTML = word;
     form.text.value = "";
 
     function complete(value) {
@@ -244,8 +245,8 @@ function showPrompt(text, post_uri, callback){
         }
     };
 
-    container.fadeIn(200);
-    //$("#prompt-form-container").fadeIn(200);
+    
+    $("#prompt-form-container").fadeIn(200);
     form.elements.text.focus();
 }
 
