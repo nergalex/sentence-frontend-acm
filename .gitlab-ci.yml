@@ -10,7 +10,7 @@ stages:
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
 
-eslint-sast:
+sast:
   rules:
     - if: $CI_MERGE_REQUEST_ID
 
