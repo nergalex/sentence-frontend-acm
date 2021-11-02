@@ -10,9 +10,11 @@ stages:
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
 
-sast:
+eslint-sast:
   rules:
     - if: $CI_MERGE_REQUEST_ID
+  script:
+    - echo 
 
 semgrep-sast:
   rules:
