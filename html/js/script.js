@@ -16,8 +16,10 @@ $(document).ready(function(e) {
 
 
     $(".plus-icon#adjective").click(function () {
-        $(".popup#adjective-popup").fadeIn(200);
-        
+        //$(".popup#adjective-popup").fadeIn(200);
+        showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
+            console.log("entered" + value);
+        });
     });
     //Contact Form validation on click event
     $("#adjective-form").on("submit", function (event) {
@@ -54,10 +56,9 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#animal").click(function () {
-        showPrompt("Add an animal", "animal", "/api/sentence/animal", function(value) {
-            console.log("entered" + value)
-        }
-    ); 
+        showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
+            console.log("entered" + value);
+        }); 
     });
     //Contact Form validation on click event
     $("#animal-form").on("submit", function () {
