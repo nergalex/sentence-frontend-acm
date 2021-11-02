@@ -198,8 +198,8 @@ async function postData(url = '', data = {}) {
 function showPrompt(text, word, post_uri, callback){
     let form = document.getElementById('prompt-form');
     let container = document.getElementById("prompt-form-container");
-    $("#prompt-message").innerHTML = "<h2>" + text + "</h2>";
-    $("#prompt-label").innerHTML = word;
+    $("#prompt-message").html("<h2>" + text + "</h2>");
+    $("#prompt-label").html(word);
     form.text.value = "";
 
     function complete(value) {
