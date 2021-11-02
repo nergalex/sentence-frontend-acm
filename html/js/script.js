@@ -44,6 +44,10 @@ $(document).ready(function(e) {
 
 function showBanner(message, word, success){
 
+    $('.success-banner').removeClass();
+    $('#success-banner-message').html("")
+    $('#success-banner-image').removeClass("")
+
     if(success){
         $('.success-banner').addClass("success");
         $('#success-banner-message').html("Success! Your word " + word + " was added!" + message )
@@ -54,14 +58,10 @@ function showBanner(message, word, success){
         $('#success-banner-image').addClass("fas fa-times-circle")
     }
 
-    bannerAnimation( function(){
-        $('.success-banner').removeClass();
-        $('#success-banner-message').html("")
-        $('#success-banner-image').removeClass("")
-    });
+    bannerAnimation();
 }
 
-function bannerAnimation(callback){
+function bannerAnimation(){
     
     console.log("bannerAnimation");
     $(".success-banner").show();
@@ -78,10 +78,6 @@ function bannerAnimation(callback){
     }).add({
         translateY: [0, -100]
     });
-
-    bannerTimeline.finished.then(
-        callback()
-    );
 }
 
 function wordAnimation(){
