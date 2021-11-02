@@ -184,7 +184,7 @@ function showPrompt(text, word, post_uri, callback){
         postData(post_uri, { "value": value })
             .then(data => {
                 console.log(data); // JSON data parsed by `data.json()` call
-                if (data.accepted) {
+                if (data.accepted == "true") {
                     console.log("accepted");
                     showBanner(data.info, data.value, true);
                 } else {
