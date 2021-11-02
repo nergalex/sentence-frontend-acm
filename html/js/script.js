@@ -7,7 +7,7 @@ $(document).ready(function(e) {
     
     $('<img/>').attr('src', 'https://picsum.photos/1920/1080?blur=1').on('load', function() {
         $(this).remove(); // prevent memory leaks as @benweet suggested 
-        $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(https://picsum.photos/1920/1080?blur=1) no-repeat center center fixed');
+        $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url(https://picsum.photos/1920/1080?blur=1) no-repeat center center fixed');
         $('.bg').css('background-size', 'cover');
         $('.bg').fadeIn(1000, function(){
             $('.logos').fadeIn(1000)   
