@@ -54,7 +54,7 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#animal").click(function () {
-        showPrompt("Add an animal", "animal", "example.com", function(value) {
+        showPrompt("Add an animal", "animal", "/api/sentence/animal", function(value) {
             console.log("entered" + value)
         }
     ); 
