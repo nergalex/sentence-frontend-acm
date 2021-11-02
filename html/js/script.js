@@ -45,8 +45,8 @@ $(document).ready(function(e) {
 function showBanner(message, word, success){
 
     $('.success-banner').removeClass();
-    $('#success-banner-message').html("")
-    $('#success-banner-image').removeClass("")
+    $('#success-banner-message').html("");
+    $('#success-banner-image').removeClass();
 
     if(success){
         $('.success-banner').addClass("success");
