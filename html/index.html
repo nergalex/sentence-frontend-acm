@@ -14,9 +14,11 @@
         <div class=bg></div>
         <div class="popup" id="prompt-form-container">
             <form class="word-form" id="prompt-form">
-                <div id="prompt-message"></div>
-                <label id="prompt-label"></label><span id="prompt-info" class="info"></span>
-                <input type="text" name="text">
+                <div>
+                    <h2 id="prompt-message"></h2>
+                    <span id="prompt-info" class="info"></span>
+                </div>
+                <input type="text" name="text" class="inputBox" id="prompt-input">
                 <input type="submit" value="Ok">
                 <input type="button" name="cancel" value="Cancel">
             </form>
@@ -35,54 +37,6 @@
                 </div>
                 <div>
                     <input type="submit" id="adjective-post" name="service" value="adjectives" />
-                </div>
-            </form>
-        </div>
-        <div class="popup" id="animal-popup">
-            <form class="word-form" action="" id="animal-form" method="post" enctype="application/json">
-                <h2>Add an animal</h2>
-                <div>
-                    <div>
-                        <label>Animal: </label><span id="animal-info" class="info"></span>
-                    </div>
-                    <div>
-                        <input type="text" id="animal-input" name="animal" class="inputBox" />
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" id="animal-post" name="service" value="animals" />
-                </div>
-            </form>
-        </div>
-        <div class="popup" id="color-popup">
-            <form class="word-form" action="" id="color-form" method="post" enctype="application/json">
-                <h2>Add an color</h2>
-                <div>
-                    <div>
-                        <label>Color: </label><span id="color-info" class="info"></span>
-                    </div>
-                    <div>
-                        <input type="text" id="color-input" name="color" class="inputBox" />
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" id="colos-post" name="service" value="colors" />
-                </div>
-            </form>
-        </div>
-        <div class="popup" id="location-popup">
-            <form class="word-form" action="" id="location-form" method="post" enctype="application/json">
-                <h2>Add a location</h2>
-                <div>
-                    <div>
-                        <label>Location: </label><span id="location-info" class="info"></span>
-                    </div>
-                    <div>
-                        <input type="text" id="location-input" name="location" class="inputBox" />
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" id="location-post" name="service" value="locations" />
                 </div>
             </form>
         </div>

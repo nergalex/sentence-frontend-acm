@@ -198,8 +198,9 @@ async function postData(url = '', data = {}) {
 function showPrompt(text, word, post_uri, callback){
     let form = document.getElementById('prompt-form');
     let container = document.getElementById("prompt-form-container");
-    $("#prompt-message").html("<h2>" + text + "</h2>");
-    $("#prompt-label").html(word);
+    $("#prompt-message").html(text);
+    $(".info").html("");
+    $(".inputBox").removeClass("input-error");
     form.text.value = "";
 
     function complete(value) {
@@ -210,9 +211,33 @@ function showPrompt(text, word, post_uri, callback){
 
     form.onsubmit = function(event) {
         console.log("submit");
+        $(".info").html("");
+        $(".inputBox").removeClass("input-error");
+
         let value = form.text.value;
 
-        if (value == "" ) return false;
+        value = sanitizeString(value);
+        console.log(value);
+        if (value == "" ) {
+            $(".info").html("Required");
+            $(".inputBox").addClass("input-error");
+            return false;
+        }
+
+        postData(post_uri, { "value": value })
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                if (data.accepted) {
+                    console.log("accepted");
+                    $(".success-banner").html("test");
+                    $(".inputBox").value = "";
+                } else {
+                    console.log("not accepted");
+                    $("#.info-info").html("not accepted");
+                    $(".inputBox").addClass("input-error");
+                };
+            })
+        ;
         
         complete(value);
         return false;
@@ -245,7 +270,6 @@ function showPrompt(text, word, post_uri, callback){
         }
     };
 
-    
     $("#prompt-form-container").fadeIn(200);
     form.elements.text.focus();
 }
