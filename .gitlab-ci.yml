@@ -1,9 +1,9 @@
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
 stages:
   - build
   - push
-
-include:
-  - template: Security/SAST.gitlab-ci.yml
 
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
