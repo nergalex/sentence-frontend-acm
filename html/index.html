@@ -14,7 +14,7 @@
         <div class=bg></div>
 
         <div class="success-banner">
-            <span id="success-banner-message">Successbanner message</span>
+            <span id="success-banner-message"></span>
             <i id="success-banner-image" class="fas "></i>
         </div>
 
@@ -39,58 +39,6 @@
                     <td><h1 class=sentence style="white-space: nowrap;">of the</h1></td>
                     <td><h1 class=sentence id=color>color</h1></td>
                     <td><h1 class=sentence id=location>location</h1></td>
-                    
-                    <!-- <?php
-                        $PREFIX = getenv('PREFIX');
-                        $NS = getenv('NAMESPACE');
- 
-                        echo "<script>console.log(".json_encode($_POST).");</script>";
-                        if (! empty($_POST["send"])) {
-                            if (! empty($_POST["adjective"])) {
-                                $word = filter_var($_POST["adjective"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'-adjectives.'.$NS.'/adjectives';
-                                $payload = json_encode(array("name" => $word));
-                            }
-                            if (! empty($_POST["animal"])) {
-                                $word = filter_var($_POST["animal"], FILTER_SANITIZE_STRING);
-                                echo '<script>console.log("error: '.$word.'");</script>';
-                                $postURL='http://'.$PREFIX.'-animals.'.$NS.'/animals';
-                                echo '<script>console.log("error: '.$postURL.'");</script>';
-                                $payload = json_encode(array( "name" => $word));
-                            }
-                            if (! empty($_POST["color"])) {
-                                $word = filter_var($_POST["color"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'-colors.'.$NS.'/colors';
-                                $payload = json_encode(array( "name" => $word));
-                            }
-                            if (! empty($_POST["location"])) {
-                                $word = filter_var($_POST["location"], FILTER_SANITIZE_STRING);
-                                $postURL='http://'.$PREFIX.'-locations.'.$NS.'/locations';
-                                $payload = json_encode(array( "name" => $word));
-                            }
-                            $ch2 = curl_init();
-                            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-                            curl_setopt($ch2, CURLOPT_VERBOSE, true);
-                            curl_setopt($ch2, CURLOPT_URL, $postURL);
-                            curl_setopt($ch2, CURLOPT_POSTFIELDS, $payload);
-                            curl_setopt($ch2, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-                            #echo '<script>console.log("curl opts: '.$ch2.'");</script>';
-                            $res=curl_exec($ch2);
-                            if (curl_errno($ch2)) {
-                                $error_msg = curl_error($ch2);
-                            }
-                            curl_close($ch2);
-                            
-                            if (isset($error_msg)) {
-                                echo "<script>console.log(".$error_msg.")</script>";
-                            } else {
-                                echo '<div style="opacity:0;" class="success-banner">Your new word '.$word.' as been successfully posted! <i class="fas fa-check-circle"></i></div>';
-                            }
-
-                            unset($_POST);
-                            echo '<script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script>';
-                        }
-                    ?> -->
                 </tr>
                 <tr>
                     <td align=center><i class="fas fa-plus plus-icon" id="adjective"></i></td>

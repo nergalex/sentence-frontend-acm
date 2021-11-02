@@ -29,11 +29,15 @@ $(document).ready(function(e) {
     });
 
     $(".plus-icon#color").click(function () {
-        $(".poput#color-popup").show();
+        showPrompt("Add an color", "color", "/api/sentence/colors", function(value) {
+            console.log("entered " + value);
+        }); 
     });
 
     $(".plus-icon#location").click(function () {
-        $(".popup#location-popup").show();
+        showPrompt("Add an location", "location", "/api/sentence/locations", function(value) {
+            console.log("entered " + value);
+        }); 
     });
 
 });
@@ -54,6 +58,7 @@ function showBanner(message, word, success){
 }
 
 function bannerAnimation(){
+    
     console.log("bannerAnimation");
     $(".success-banner").show();
 
@@ -69,7 +74,6 @@ function bannerAnimation(){
     }).add({
         translateY: [0, -100]
     });
-   
 }
 
 function wordAnimation(){
@@ -109,7 +113,6 @@ function getSentence(){
         $(".sentence#color").replaceWith("<h1 class=sentence id=color>" + json.colors + "</h1>" );
         $(".sentence#location").replaceWith("<h1 class=sentence id=location>" + json.locations + "</h1>" );
 
-        console.log("wrap started");
         // Wrap every word in a span for animation  
         $('.sentence').each(function() {
             let text = $(this).text();
@@ -121,8 +124,6 @@ function getSentence(){
             // Loop through each word, wrap each letter in a span
             for (let word of words) {
                 //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-        
-                console.log('<span class="word">' + word + '</span>');
         
                 // Wrap another span around each word, add word to header
                 this.innerHTML += '<span class="word">' + word + '</span>';
