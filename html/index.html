@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Random Name Generator</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="cache-control" content="no-cache">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="https://kit.fontawesome.com/556c5d2f1b.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
+    </head>
+    <body>
+        <div class=bg></div>
+
+        <div class="success-banner">
+            <span id="success-banner-message"></span>
+            <i id="success-banner-image"></i>
+        </div>
+
+        <div class="popup" id="prompt-form-container">
+            <form class="word-form" id="prompt-form">
+                <div>
+                    <h2 id="prompt-message"></h2>
+                    <span id="prompt-info" class="info"></span>
+                </div>
+                <input type="text" name="text" class="inputBox" id="prompt-input">
+                <input type="submit" value="Ok">
+                <input type="button" name="cancel" value="Cancel">
+            </form>
+        </div>
+
+        <div class=wrap>
+            <!-- Sentence -->
+            <table>
+                <tr>
+                    <td><h1 class=sentence id=adjective>adjective</h1></td>
+                    <td><h1 class=sentence id=animal>animal</h1></td>
+                    <td><h1 class=sentence style="white-space: nowrap;">of the</h1></td>
+                    <td><h1 class=sentence id=color>color</h1></td>
+                    <td><h1 class=sentence id=location>location</h1></td>
+                </tr>
+                <tr>
+                    <td align=center><i class="fas fa-plus plus-icon" id="adjective"></i></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="animal"></i></td>
+                    <td align=center><div></div></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="color"></i></td>
+                    <td align=center><i class="fas fa-plus plus-icon" id="location"></i></td>
+                </tr>
+            </table>
+   
+        </div>
+    </body>
+    <footer>
+        <div class=logos>
+            <div class=img>
+                <img src="./images/f5.png">
+            </div>       
+            <div class=img>
+                <img src="./images/nginx.png">
+            </div>
+            <div class=img>
+                <img src="./images/shape.png">
+            </div>
+            <div class=img>
+                <img src="./images/volterra.png">
+            </div>   
+        </div>
+    </footer>
+    <!-- <script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script> -->
+</html>

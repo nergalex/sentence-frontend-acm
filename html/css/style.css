@@ -1,3 +1,7 @@
+html {
+  background: linear-gradient(to top right, rgba(40, 40, 40, 1), rgba(90, 90, 90, 1));
+}
+
 body {
   margin:0;
 }
@@ -89,6 +93,11 @@ table {
 }
 
 .success-banner {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  line-height: 80px;
   text-align: center;
   font-family: 'Lobster';
   font-size: 32px;
@@ -98,8 +107,20 @@ table {
   -5px 15px 5px rgba(0, 0, 0, 0.10);
 }
 
-.success-banner i {
+.success {
+  background-color: forestgreen;
+}
+
+.failure {
+  background-color: orangered;
+}
+
+.success i {
   color: greenyellow;
+}
+
+.failure i {
+  color: orange;
 }
 
 .input-error {
