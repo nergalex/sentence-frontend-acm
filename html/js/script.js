@@ -47,17 +47,21 @@ function showBanner(message, word, success){
     if(success){
         $('.success-banner').addClass("success");
         $('#success-banner-message').html("Success! Your word " + word + " was added!" + message )
-        $('#success-banner-image').addClass("fa-check-circle")
+        $('#success-banner-image').addClass("fas fa-check-circle")
     } else {
         $('.success-banner').addClass("failure");
         $('#success-banner-message').html("Failure! Your word " + word + " was not added! " + message )
-        $('#success-banner-image').addClass("fa-times-circle")
+        $('#success-banner-image').addClass("fas fa-times-circle")
     }
 
-    bannerAnimation();
+    bannerAnimation( function(){
+        $('.success-banner').removeClass();
+        $('#success-banner-message').html("")
+        $('#success-banner-image').removeClass("")
+    });
 }
 
-function bannerAnimation(){
+function bannerAnimation(callback){
     
     console.log("bannerAnimation");
     $(".success-banner").show();
@@ -74,6 +78,10 @@ function bannerAnimation(){
     }).add({
         translateY: [0, -100]
     });
+
+    bannerTimeline.finished.then(
+        callback()
+    );
 }
 
 function wordAnimation(){
