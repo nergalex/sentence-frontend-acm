@@ -74,9 +74,9 @@ function bannerAnimation(){
         endDelay: 5000,
         loop: false
     }).add({
-        translateY: [-100, 0]
+        translateY: ['-100%', '0%']
     }).add({
-        translateY: [0, -100]
+        translateY: ['0%', '-100%']
     });
 }
 
