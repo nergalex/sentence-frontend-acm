@@ -13,8 +13,6 @@ variables:
 eslint-sast:
   rules:
     - if: $CI_MERGE_REQUEST_ID
-  script:
-    - echo 
 
 semgrep-sast:
   rules:
