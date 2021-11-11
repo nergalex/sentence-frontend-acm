@@ -10,6 +10,18 @@ stages:
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
 
+eslint-sast:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+  script:
+    - "/analyzer run"
+
+semgrep-sast:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+  script:
+    - "/analyzer run"
+
 
 Build image:
   stage: build
