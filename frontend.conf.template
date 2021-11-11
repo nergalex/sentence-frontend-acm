@@ -15,7 +15,7 @@ server {
     }
 
     location /api/backgrounds {
-        proxy_pass http://${PREFIX}-backgrounds.${NAMESPACE};
+        proxy_pass http://${PREFIX}-backgrounds.${NAMESPACE}/;
         proxy_ssl_server_name on;
     }
 
