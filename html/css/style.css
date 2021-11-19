@@ -146,6 +146,10 @@ table {
   opacity: 0;
 }
 
+.sentence #adjective {
+  text-transform: capitalize;
+}
+
 footer {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); 
   padding-bottom: 15px;
