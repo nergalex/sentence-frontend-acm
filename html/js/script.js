@@ -120,10 +120,18 @@ function getSentence(){
         return response.json();
     }).then( json => {
         console.log(json);
-        $(".sentence#adjective").replaceWith("<h1 class=sentence id=adjective>" + json.adjectives + "</h1>" );
-        $(".sentence#animal").replaceWith("<h1 class=sentence id=animal>" + json.animals + "</h1>" );
-        $(".sentence#color").replaceWith("<h1 class=sentence id=color>" + json.colors + "</h1>" );
-        $(".sentence#location").replaceWith("<h1 class=sentence id=location>" + json.locations + "</h1>" );
+        if (json.adjectives != "null") {
+            $(".sentence#adjective").replaceWith("<h1 class=sentence id=adjective>" + json.adjectives + "</h1>" );    
+        }
+        if (json.animals != "null") {
+            $(".sentence#animal").replaceWith("<h1 class=sentence id=animal>" + json.animals + "</h1>" );
+        }
+        if (json.colors != "null") {
+            $(".sentence#color").replaceWith("<h1 class=sentence id=color>" + json.colors + "</h1>" );
+        }
+        if (json.locations != "null") {
+            $(".sentence#location").replaceWith("<h1 class=sentence id=location>" + json.locations + "</h1>" );
+        }
 
         // Wrap every word in a span for animation  
         $('.sentence').each(function() {
