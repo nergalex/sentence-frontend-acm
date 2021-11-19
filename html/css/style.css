@@ -146,7 +146,7 @@ table {
   opacity: 0;
 }
 
-.sentence #adjective {
+.sentence#adjective {
   text-transform: capitalize;
 }
 
