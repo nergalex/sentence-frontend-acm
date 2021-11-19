@@ -42,10 +42,10 @@ $(document).ready(function(e) {
 
     $( ".plus-icon" )
         .mouseover(function() {
-            $( this ).animate({fontSize: "40px"}, 200);
+            $( this ).stop().animate({fontSize: "40px"}, 200);
         })
         .mouseout(function() {
-            $( this ).animate({fontSize: "32px"}, 200);
+            $( this ).stop().animate({fontSize: "32px"}, 200);
         });
 
 });
