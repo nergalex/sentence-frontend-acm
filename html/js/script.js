@@ -121,26 +121,22 @@ function getSentence(){
     }).then( json => {
         console.log(json);
         if (json.adjectives != "null") {
-            $(".sentence#adjective").html(json.adjectives);
-            $(".plus-icon#adjective").addClass("fas fa-plus");
+            $(".grid-item#adjective > h1").html(json.adjectives);
         } else {
             $(".grid-item#adjective").remove()
         }
         if (json.animals != "null") {
             $(".sentence#animal").html(json.animals);
-            $(".plus-icon#animal").addClass("fas fa-plus");
         } else {
             $(".grid-item#animal").remove()
         }
         if (json.colors != "null") {
             $(".sentence#color").html(json.colors);
-            $(".plus-icon#color").addClass("fas fa-plus");
         } else {
             $(".grid-item#color").remove()
         }
         if (json.locations != "null") {
             $(".sentence#location").html(json.locations);
-            $(".plus-icon#location").addClass("fas fa-plus");
         } else {
             $(".grid-item#location").remove()
         }
