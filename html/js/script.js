@@ -21,19 +21,19 @@ $(document).ready(function(e) {
         });
     });
 
-    $(".plus-icon#animal").click(function () {
+    $(".grid-item#animal > .plus-icon").click(function () {
         showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
             console.log("entered " + value);
         }); 
     });
 
-    $(".plus-icon#color").click(function () {
+    $(".grid-item#color > .plus-icon").click(function () {
         showPrompt("Add an color", "color", "/api/sentence/colors", function(value) {
             console.log("entered " + value);
         }); 
     });
 
-    $(".plus-icon#location").click(function () {
+    $(".grid-item#location > .plus-icon").click(function () {
         showPrompt("Add an location", "location", "/api/sentence/locations", function(value) {
             console.log("entered " + value);
         }); 
