@@ -10,7 +10,10 @@ body {
   background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
   background-size: cover;
   background-blend-mode: hard-light;
-  height: 100%
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 .wrap {
@@ -60,6 +63,7 @@ body {
 .plus-icon{
   cursor: pointer;
   font-size: 32px;
+  line-height: 32px;
   font-family: 'Lobster', cursive;
   text-align: center;
   justify-content: center;
@@ -131,9 +135,13 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-
+  height: 100%;
   gap: 10px;
   grid-auto-flow: column;
+}
+
+.grid-item {
+  text-align: center;
 }
 
 .sentence {
