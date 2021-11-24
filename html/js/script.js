@@ -121,20 +121,28 @@ function getSentence(){
     }).then( json => {
         console.log(json);
         if (json.adjectives != "null") {
-            $(".sentence#adjective").replaceWith("<h1 class=sentence id=adjective>" + json.adjectives + "</h1>" );
+            $(".sentence#adjective").html(json.adjectives);
             $(".plus-icon#adjective").addClass("fas fa-plus");
+        } else {
+            $(".grid-item#adjective").remove()
         }
         if (json.animals != "null") {
-            $(".sentence#animal").replaceWith("<h1 class=sentence id=animal>" + json.animals + "</h1>" );
+            $(".sentence#animal").html(json.animals);
             $(".plus-icon#animal").addClass("fas fa-plus");
+        } else {
+            $(".grid-item#animal").remove()
         }
         if (json.colors != "null") {
-            $(".sentence#color").replaceWith("<h1 class=sentence id=color>" + json.colors + "</h1>" );
+            $(".sentence#color").html(json.colors);
             $(".plus-icon#color").addClass("fas fa-plus");
+        } else {
+            $(".grid-item#adjective").remove()
         }
         if (json.locations != "null") {
-            $(".sentence#location").replaceWith("<h1 class=sentence id=location>" + json.locations + "</h1>" );
+            $(".sentence#location").html(json.locations);
             $(".plus-icon#location").addClass("fas fa-plus");
+        } else {
+            $(".grid-item#adjective").remove()
         }
 
         // Wrap every word in a span for animation  
