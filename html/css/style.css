@@ -63,7 +63,7 @@ body {
 .plus-icon{
   cursor: pointer;
   font-size: 32px;
-  line-height: 32px;
+  line-height: 32px !important;
   font-family: 'Lobster', cursive;
   text-align: center;
   justify-content: center;
