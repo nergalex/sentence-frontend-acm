@@ -136,13 +136,13 @@ function getSentence(){
             $(".sentence#color").html(json.colors);
             $(".plus-icon#color").addClass("fas fa-plus");
         } else {
-            $(".grid-item#adjective").remove()
+            $(".grid-item#color").remove()
         }
         if (json.locations != "null") {
             $(".sentence#location").html(json.locations);
             $(".plus-icon#location").addClass("fas fa-plus");
         } else {
-            $(".grid-item#adjective").remove()
+            $(".grid-item#location").remove()
         }
 
         // Wrap every word in a span for animation  
