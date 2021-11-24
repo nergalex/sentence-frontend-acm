@@ -140,17 +140,19 @@ function getSentence(){
         // Wrap every word in a span for animation  
         $('.sentence').each(function() {
             let text = $(this).text();
-            let words = text.split(' ');
-        
-            // Clear current element
-            this.innerHTML = '';
-        
-            // Loop through each word, wrap each letter in a span
-            for (let word of words) {
-                //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-        
-                // Wrap another span around each word, add word to header
-                this.innerHTML += '<span class="word">' + word + '</span>';
+            if (text) { // Check if text is not empty
+                let words = text.split(' ');
+
+                // Clear current element
+                this.innerHTML = '';
+            
+                // Loop through each word, wrap each letter in a span
+                for (let word of words) {
+                    //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+            
+                    // Wrap another span around each word, add word to header
+                    this.innerHTML += '<span class="word">' + word + '</span>';
+                }
             }
         });
         wordAnimation();
