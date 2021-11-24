@@ -136,7 +136,6 @@ body {
   justify-content: center;
   align-content: center;
   height: 100%;
-  gap: 10px;
   grid-auto-flow: column;
 }
 
