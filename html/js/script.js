@@ -4,7 +4,7 @@ $(document).ready(function(e) {
     $('.logos').hide();
     getSentence();
 
-    
+    // Loads the background async
     $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
         $(this).remove(); // prevent memory leaks as @benweet suggested 
         $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
@@ -14,11 +14,10 @@ $(document).ready(function(e) {
         });
     });
 
-
-    $(".plus-icon#adjective").click(function () {
+    // Handlers for plus icons to show input prompt
+    $(".grid-item#adjective > .plus-icon").click(function () {
         showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
             console.log("entered " + value);
-
         });
     });
 
@@ -40,6 +39,7 @@ $(document).ready(function(e) {
         }); 
     });
 
+    // Plus icon animation
     $( ".plus-icon" )
         .mouseover(function() {
             $( this ).stop().animate({fontSize: "40px"}, 200);
@@ -50,6 +50,7 @@ $(document).ready(function(e) {
 
 });
 
+// Success or failure banner
 function showBanner(message, word, success){
 
     $('.success-banner').removeClass("success failure");
@@ -114,29 +115,31 @@ function wordAnimation(){
     });
 }
 
+// Fetches sentence from generator
 function getSentence(){
-    fetch('/api/sentence').then( response => {
-        console.log(response);
+    fetch('/api/sentence').then( response => { 
         return response.json();
     }).then( json => {
         console.log(json);
+        // Assigns return json values grid items
+        // Checks for null return value and remove 
         if (json.adjectives != "null") {
             $(".grid-item#adjective > h1").html(json.adjectives);
         } else {
             $(".grid-item#adjective").remove()
         }
         if (json.animals != "null") {
-            $(".sentence#animal").html(json.animals);
+            $(".grid-item#animal > h1").html(json.animals);
         } else {
             $(".grid-item#animal").remove()
         }
         if (json.colors != "null") {
-            $(".sentence#color").html(json.colors);
+            $(".grid-item#color > h1").html(json.colors);
         } else {
             $(".grid-item#color").remove()
         }
         if (json.locations != "null") {
-            $(".sentence#location").html(json.locations);
+            $(".grid-item#location > h1").html(json.locations);
         } else {
             $(".grid-item#location").remove()
         }
@@ -159,6 +162,8 @@ function getSentence(){
                 }
             }
         });
+
+        // Run the sentence entry animation
         wordAnimation();
     });
 }
@@ -182,6 +187,8 @@ async function postData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
+
+// Show input prompt
 function showPrompt(text, word, post_uri, callback){
     let form = document.getElementById('prompt-form');
     let container = document.getElementById("prompt-form-container");
@@ -211,6 +218,7 @@ function showPrompt(text, word, post_uri, callback){
             return false;
         }
 
+        //posts data to generator
         postData(post_uri, { "value": value })
             .then(data => {
                 console.log(data); // JSON data parsed by `data.json()` call
