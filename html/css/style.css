@@ -48,10 +48,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 2px 10px #191919;
-  padding: 10px 30px 20px 30px;
+  padding: 20px 30px 20px 30px;
 }
 .word-form > div > h2 {
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
 }
 
 .plus-icon{
@@ -71,6 +71,11 @@ body {
 .info {
   color: #d30a0a;
   font-weight: 500;
+}
+
+.info:empty::before {
+  /* unicode zero width space character */
+  content: "\200b";
 }
 
 #send {
