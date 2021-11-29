@@ -73,11 +73,6 @@ body {
   font-weight: 500;
 }
 
-.info:empty::before {
-  /* unicode zero width space character */
-  content: "\200b";
-}
-
 #send {
   background-color: #09F;
   border: 1px solid #1398f1;
