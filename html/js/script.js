@@ -4,7 +4,11 @@ $(document).ready(function(e) {
     $('.logos').hide();
     getSentence();
 
+<<<<<<< HEAD
     // Loads the background async
+=======
+    
+>>>>>>> a92ea69714f35f44e23f585990c5402017b5abc1
     $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
         $(this).remove(); // prevent memory leaks as @benweet suggested 
         $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
