@@ -15,7 +15,9 @@ COPY /html /usr/share/nginx/html
 
 #COPY entrypoint/20-envsubst-on-templates.sh /docker-entrypoint.d/
 
-RUN chown -R $UID:0 /usr/share/nginx \
+RUN mkdir /usr/share/nginx/conf.d
+
+RUN chown -R 101:0 /usr/share/nginx \
     && chmod -R a+w /usr/share/nginx
 
 #USER 101
