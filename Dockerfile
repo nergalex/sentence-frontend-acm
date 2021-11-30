@@ -16,9 +16,9 @@ COPY /html /usr/share/nginx/html
 #COPY entrypoint/20-envsubst-on-templates.sh /docker-entrypoint.d/
 
 RUN chown -R $UID:0 /usr/share/nginx \
-    && chmod -R g+w /usr/share/nginx
+    && chmod -R a+w /usr/share/nginx
 
-USER 101
+#USER 101
 
 EXPOSE 8080  
 CMD ["nginx", "-g", "daemon off;"]
