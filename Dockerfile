@@ -19,6 +19,7 @@ COPY /html /usr/share/nginx/html
 
 #RUN mkdir /usr/share/nginx/conf.d
 
+RUN chmod -R 777 /etc/nginx
 # RUN chown -R 101:0 /usr/share/nginx \
 #     && chmod -R a+w /usr/share/nginx
 
