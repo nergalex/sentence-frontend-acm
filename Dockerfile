@@ -9,7 +9,7 @@ COPY nginx.conf /etc/nginx/
 COPY frontend.conf.template /usr/share/nginx/templates/
 COPY /html /usr/share/nginx/html
 
-#RUN rm -v /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+RUN rm -v /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
 #RUN rm -v /docker-entrypoint.d/20-envsubst-on-templates.sh
 #RUN rm -v /docker-entrypoint.d/30-tune-worker-processes.sh
 
@@ -17,8 +17,8 @@ COPY /html /usr/share/nginx/html
 
 RUN mkdir /usr/share/nginx/conf.d
 
-RUN chown -R 101:0 /usr/share/nginx \
-    && chmod -R a+w /usr/share/nginx
+# RUN chown -R 101:0 /usr/share/nginx \
+#     && chmod -R a+w /usr/share/nginx
 
 #USER 101
 
