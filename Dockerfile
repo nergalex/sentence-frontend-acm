@@ -1,6 +1,6 @@
 FROM nginxinc/nginx-unprivileged:1.21
 
-#USER root
+USER root
 
 #RUN rm -v /etc/nginx/nginx.conf
 RUN rm -v /etc/nginx/conf.d/default.conf
