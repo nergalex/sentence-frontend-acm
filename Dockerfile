@@ -1,10 +1,16 @@
-FROM nginx
+FROM nginxinc/nginx-unprivileged:1.21-alpine
+
+USER root
 
 RUN rm -v /etc/nginx/nginx.conf
+RUN rm -v /etc/nginx/conf.d/default.conf
 
-ADD nginx.conf /etc/nginx/
-ADD frontend.conf.template /etc/nginx/templates/
-ADD /html /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/
+COPY frontend.conf.template /etc/nginx/templates/
+COPY /html /usr/share/nginx/html
 
-EXPOSE 80  
+# Enables and arbitrary user to write to nginx folder, Needed for vk8s deployments
+RUN chmod -R 777 /etc/nginx
+
+EXPOSE 8080  
 CMD ["nginx", "-g", "daemon off;"]
