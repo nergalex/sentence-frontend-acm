@@ -22,8 +22,27 @@ semgrep-sast:
   script:
     - "/analyzer run"
 
+build shape image:
+  stage: build
+  image: docker:20
+  only:
+    refs:
+      - /^release\/(frontend-shape)/
+  services:
+    - docker:20-dind
+  before_script:
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - docker image pull ${IMAGE}:latest || true 
+    - >
+      docker build 
+      --pull 
+      --cache-from ${IMAGE}:latest 
+      --tag ${IMAGE}:shape
+      .
+    - docker push ${IMAGE}:shape
 
-Build image:
+Build Dev image:
   stage: build
   image: docker:20
   only:
