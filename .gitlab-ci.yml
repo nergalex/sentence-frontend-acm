@@ -74,8 +74,8 @@ push Tag:
   before_script:
     - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
-    - docker pull $IMAGE:dev
-    - docker tag $IMAGE:dev $IMAGE:$CI_COMMIT_REF_NAME
+    - docker pull $IMAGE:latest
+    - docker tag $IMAGE:latest $IMAGE:$CI_COMMIT_REF_NAME
     - docker push $IMAGE:$CI_COMMIT_REF_NAME
 
 Push latest:
