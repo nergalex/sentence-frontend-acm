@@ -1,9 +1,5 @@
 1. Get the application URL by running these commands:
-{{- if .Values.virtualServer.enabled }}
-  {{- with .Values.virtualServer }}
-  http{{ if .tls }}s{{ end }}://{{ .host }}
-  {{- end }}
-{{- else if .Values.ingress.enabled }}
+{{- if .Values.ingress.enabled }}
 {{- range $host := .Values.ingress.hosts }}
   {{- range .paths }}
   http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
