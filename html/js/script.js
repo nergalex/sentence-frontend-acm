@@ -157,7 +157,7 @@ function animateLogos(){
 
 // Fetches sentence from generator
 function getSentence(){
-    return new Promise( () => {
+    return new Promise( resolve => {
         fetch('/api/sentence').then( response => { 
             return response.json();
         }).then( json => {
