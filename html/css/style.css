@@ -9,7 +9,8 @@ body {
 }
 
 .bg {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed;
+  /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); */
   background-size: cover;
   background-blend-mode: hard-light;
   position: absolute;
@@ -296,4 +297,19 @@ footer .logos img {
 
 .button-4:-webkit-details-marker {
   display: none;
+}
+
+@keyframes fadeout {
+  from {
+      opacity: 1;
+  }
+
+  to {
+      opacity: 0;
+  }
+}
+
+.fadeout {
+  animation-name: fadeout;
+  animation-fill-mode: forwards;
 }

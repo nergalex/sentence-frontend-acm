@@ -11,14 +11,6 @@ ready(() => {
 });
 
 
-
-$(document).ready(function(e) { 
-    // $('.bg').hide();
-    // $('.sentence').hide();
-    // $('.logos').hide();
-
-});
-
 // Handlers for plus icons to show input prompt
 $(".grid-item#adjective > .plus-icon").click(function () {
     showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
@@ -120,14 +112,19 @@ function wordAnimation(){
 
 function getBackground(){
     // Loads the background async
-    $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
-        $(this).remove(); // prevent memory leaks as @benweet suggested 
-        $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
-        $('.bg').css('background-size', 'cover');
-        $('.bg').fadeIn(1000, function(){
-            $('.logos').fadeIn(1000)   
-        });
+    // $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
+    //     $(this).remove(); // prevent memory leaks as @benweet suggested 
+    //     $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
+    //     $('.bg').css('background-size', 'cover');
+    //     $('.bg').fadeIn(1000, function(){
+    //         $('.logos').fadeIn(1000)   
+    //     });
+    // });
+    var bg = document.querySelector('.bg');
+    bg.addEventListener('animationend', () => {
+        console.log("element has faded out...");
     });
+    bg.classList.add("fadeout");
 }
 
 // Fetches sentence from generator
