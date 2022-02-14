@@ -156,9 +156,8 @@ function animateLogos(){
 }
 
 // Fetches sentence from generator
-function getSentence(){
-    // return new Promise( resolve => {
-        fetch('/api/sentence').then( response => { 
+async function getSentence(){
+    return fetch('/api/sentence').then( response => { 
             return response.json();
         }).then( json => {
             console.log(json);
@@ -204,9 +203,8 @@ function getSentence(){
                 }
             });
             console.log("GetSentence Done")
-            return
         });
-    // })
+
 }
 
 // Example POST method implementation:
