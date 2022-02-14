@@ -16,6 +16,7 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
+  display: none;
 }
 
 .inputBox {
@@ -136,6 +137,7 @@ body {
 }
 
 .sentence {
+  display: none;
   font-family: 'Lobster', cursive;
   font-size: 48px;
   text-align: center;
@@ -171,7 +173,7 @@ footer {
 footer .logos{
   position: absolute;
   bottom: 0;
-  display:table;
+  display:none;
   border-collapse: collapse;
 }
 
