@@ -125,7 +125,7 @@ function getBackground(){
     //     });
     // });
     
-    sleep(4000)
+    await sleep(4000)
     var bg = document.querySelector('.bg');
     bg.addEventListener('animationend', () => {
         console.log("element has faded out...");
