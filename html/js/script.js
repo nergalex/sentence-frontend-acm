@@ -117,7 +117,7 @@ function wordAnimation(){
 }
 
 function animateBackground(){
-    return new Promise( resolve, reject => {
+    return new Promise( resolve => {
         var bg = document.querySelector('.bg');
         bg.addEventListener('animationend', () => {
             console.log("bg Animated");
@@ -137,7 +137,7 @@ function animateBackground(){
 }
 
 function animateLogos(){
-    return new Promise(resolve, reject => {
+    return new Promise(resolve => {
         var logos = document.querySelector('.logos');
         logos.addEventListener('animationend', () =>{
             console.log("Logos Animated");
