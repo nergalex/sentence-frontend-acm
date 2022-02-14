@@ -313,6 +313,8 @@ footer .logos img {
 
 .fadeout {
   animation-name: fadeout;
+  animation-duration: 1s;
+	animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 
@@ -328,21 +330,20 @@ footer .logos img {
 
 .fadein {
   animation-name: fadein;
+  animation-duration: 1s;
+	animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 
 
-/* Image with 'data' attribute is hidden */
-img[data-lazy-src] {
-  /* we set the opacity to 0 */
-     opacity: 0;
-  }
-  /* Image without 'data' attribute is (or becomes) visible */
-  img.lazyloaded {
-  /* prepare the future animation */
-     -webkit-transition: opacity .5s linear 0.2s;
-         -moz-transition: opacity .5s linear 0.2s;
-                   transition: opacity .5s linear 0.2s;
-  /* we set the opacity to 1 to do the magic */
-     opacity: 1;
-  }
+
+img[src=""],
+img:not([src]) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+img:not([src=""]) {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
