@@ -130,7 +130,7 @@ function animateBackground(){
         var bg = document.querySelector('.bg');
         bg.addEventListener('animationend', () => {
             console.log("bg Animated");
-            return
+            resolve()
         });
         bg.classList.add("fadein");
     });
@@ -150,7 +150,7 @@ function animateLogos(){
         var logos = document.querySelector('.logos');
         logos.addEventListener('animationend', () =>{
             console.log("Logos Animated");
-            return
+            resolve()
         });
         logos.classList.add("fadein");
     });
