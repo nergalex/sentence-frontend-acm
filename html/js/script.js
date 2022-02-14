@@ -1,54 +1,57 @@
-$(document).ready(function(e) { 
-    $('.bg').hide();
-    $('.sentence').hide();
-    $('.logos').hide();
+// Without jQuery
+// Define a convenience method and use it
+var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+}
+  
+ready(() => { 
+    getBackground();
     getSentence();
+});
 
-    // Loads the background async
-    $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
-        $(this).remove(); // prevent memory leaks as @benweet suggested 
-        $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
-        $('.bg').css('background-size', 'cover');
-        $('.bg').fadeIn(1000, function(){
-            $('.logos').fadeIn(1000)   
-        });
-    });
 
-    // Handlers for plus icons to show input prompt
-    $(".grid-item#adjective > .plus-icon").click(function () {
-        showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
-            console.log("entered " + value);
-        });
-    });
 
-    $(".grid-item#animal > .plus-icon").click(function () {
-        showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
-            console.log("entered " + value);
-        }); 
-    });
-
-    $(".grid-item#color > .plus-icon").click(function () {
-        showPrompt("Add an color", "color", "/api/sentence/colors", function(value) {
-            console.log("entered " + value);
-        }); 
-    });
-
-    $(".grid-item#location > .plus-icon").click(function () {
-        showPrompt("Add an location", "location", "/api/sentence/locations", function(value) {
-            console.log("entered " + value);
-        }); 
-    });
-
-    // Plus icon animation
-    $( ".plus-icon" )
-        .mouseover(function() {
-            $( this ).stop().animate({fontSize: "40px"}, 200);
-        })
-        .mouseout(function() {
-            $( this ).stop().animate({fontSize: "32px"}, 200);
-        });
+$(document).ready(function(e) { 
+    // $('.bg').hide();
+    // $('.sentence').hide();
+    // $('.logos').hide();
 
 });
+
+// Handlers for plus icons to show input prompt
+$(".grid-item#adjective > .plus-icon").click(function () {
+    showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
+        console.log("entered " + value);
+    });
+});
+
+$(".grid-item#animal > .plus-icon").click(function () {
+    showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
+        console.log("entered " + value);
+    }); 
+});
+
+$(".grid-item#color > .plus-icon").click(function () {
+    showPrompt("Add an color", "color", "/api/sentence/colors", function(value) {
+        console.log("entered " + value);
+    }); 
+});
+
+$(".grid-item#location > .plus-icon").click(function () {
+    showPrompt("Add an location", "location", "/api/sentence/locations", function(value) {
+        console.log("entered " + value);
+    }); 
+});
+
+// Plus icon animation
+$( ".plus-icon" )
+    .mouseover(function() {
+        $( this ).stop().animate({fontSize: "40px"}, 200);
+    })
+    .mouseout(function() {
+        $( this ).stop().animate({fontSize: "32px"}, 200);
+    });
 
 // Success or failure banner
 function showBanner(message, word, success){
@@ -112,6 +115,18 @@ function wordAnimation(){
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
+    });
+}
+
+function getBackground(){
+    // Loads the background async
+    $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
+        $(this).remove(); // prevent memory leaks as @benweet suggested 
+        $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
+        $('.bg').css('background-size', 'cover');
+        $('.bg').fadeIn(1000, function(){
+            $('.logos').fadeIn(1000)   
+        });
     });
 }
 
