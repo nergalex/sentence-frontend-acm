@@ -13,13 +13,21 @@ body {
   /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); */
   /* background-size: cover; */
   /* background-blend-mode: hard-light; */
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: auto;
-  width: 100%;
-  z-index: -1;
-  opacity: 0;
+  display:flex;
+  position:fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  justify-content:center;
+  align-items:center;
+}
+
+.bg img {
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
 }
 
 .inputBox {
@@ -333,17 +341,4 @@ footer .logos img {
   animation-duration: 1s;
 	animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-}
-
-
-
-img[src=""],
-img:not([src]) {
-  visibility: hidden;
-  opacity: 0;
-}
-
-img:not([src=""]) {
-  opacity: 1;
-  transition: opacity 0.5s;
 }
