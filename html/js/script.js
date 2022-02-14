@@ -6,7 +6,6 @@ var ready = (callback) => {
 }
   
 ready(() => { 
-    getBackground();
     getSentence();
 });
 
@@ -110,7 +109,7 @@ function wordAnimation(){
     });
 }
 
-function getBackground(){
+function animateBackground(){
     // Loads the background async
     // $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
     //     $(this).remove(); // prevent memory leaks as @benweet suggested 
@@ -121,11 +120,11 @@ function getBackground(){
     //     });
     // });
     
-    // var bg = document.querySelector('.bg');
-    // bg.addEventListener('animationend', () => {
-    //     console.log("element has faded out...");
-    // });
-    // bg.classList.add("fadein");
+    var bg = document.querySelector('.bg');
+    bg.addEventListener('animationend', () => {
+        document.querySelector('.logos').classList.add("fadein")
+    });
+    bg.classList.add("fadein");
 }
 
 // Fetches sentence from generator
