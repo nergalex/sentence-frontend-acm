@@ -110,6 +110,10 @@ function wordAnimation(){
     });
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function getBackground(){
     // Loads the background async
     // $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
@@ -120,6 +124,8 @@ function getBackground(){
     //         $('.logos').fadeIn(1000)   
     //     });
     // });
+    
+    sleep(4000)
     var bg = document.querySelector('.bg');
     bg.addEventListener('animationend', () => {
         console.log("element has faded out...");
