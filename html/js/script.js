@@ -7,7 +7,9 @@ var ready = (callback) => {
   
 ready(() => { 
     var bg = document.querySelector('.bg img');
-    var promises = [getSentence(), bg.onload(animateBackground().then(animateLogos()))]
+
+
+    var promises = [getSentence(), waitForBackground(bg).then(animateBackground().then(animateLogos()))];
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
@@ -113,6 +115,12 @@ function wordAnimation(){
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 1400,
+    });
+}
+
+function waitForBackground(bg) {
+    return new Promise(function(resolve, reject) {
+        bg.onload = resolve;
     });
 }
 
