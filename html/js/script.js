@@ -155,10 +155,7 @@ function animateLogos(){
 }
 
 async function awaitBG(){
-    return new Promise( resolve => {
-        await waitForBackground().then(animateBackground()).then(animateLogos())
-        resolve()
-    });
+    return await waitForBackground().then(animateBackground()).then(animateLogos())   
 }
 
 // Fetches sentence from generator
