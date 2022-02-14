@@ -7,7 +7,13 @@ var ready = (callback) => {
   
 ready(() => { 
     var bg = document.querySelector('.bg img');
-    bg.onload(animateBackground());
+    var promises = [getSentence(), bg.onload(animateBackground().then(animateLogos()))]
+    
+    Promise.all(promises).then(() => {
+        console.log("Both Promises done");
+        // Run the sentence entry animation
+        wordAnimation();
+    });
 });
 
 
@@ -111,6 +117,14 @@ function wordAnimation(){
 }
 
 function animateBackground(){
+    return new Promise( resolve, reject => {
+        var bg = document.querySelector('.bg');
+        bg.addEventListener('animationend', () => {
+            console.log("bg Animated");
+            resolve();
+        });
+        bg.classList.add("fadein");
+    });
     // Loads the background async
     // $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
     //     $(this).remove(); // prevent memory leaks as @benweet suggested 
@@ -120,66 +134,69 @@ function animateBackground(){
     //         $('.logos').fadeIn(1000)   
     //     });
     // });
-    
-    var bg = document.querySelector('.bg');
-    bg.addEventListener('animationend', () => {
-        document.querySelector('.logos').classList.add("fadein")
-        getSentence();
+}
+
+function animateLogos(){
+    return new Promise(resolve, reject => {
+        var logos = document.querySelector('.logos');
+        logos.addEventListener('animationend', () =>{
+            console.log("Logos Animated");
+            resolve();
+        });
+        logos.classList.add("fadein");
     });
-    bg.classList.add("fadein");
 }
 
 // Fetches sentence from generator
 function getSentence(){
-    fetch('/api/sentence').then( response => { 
-        return response.json();
-    }).then( json => {
-        console.log(json);
-        // Assigns return json values grid items
-        // Checks for null return value and remove 
-        if (json.adjectives != "null") {
-            $(".grid-item#adjective > h1").html(json.adjectives);
-        } else {
-            $(".grid-item#adjective").remove()
-        }
-        if (json.animals != "null") {
-            $(".grid-item#animal > h1").html(json.animals);
-        } else {
-            $(".grid-item#animal").remove()
-        }
-        if (json.colors != "null") {
-            $(".grid-item#color > h1").html(json.colors);
-        } else {
-            $(".grid-item#color").remove()
-        }
-        if (json.locations != "null") {
-            $(".grid-item#location > h1").html(json.locations);
-        } else {
-            $(".grid-item#location").remove()
-        }
-
-        // Wrap every word in a span for animation  
-        $('.sentence').each(function() {
-            let text = $(this).text();
-            if (text) { // Check if text is not empty
-                let words = text.split(' ');
-
-                // Clear current element
-                this.innerHTML = '';
-            
-                // Loop through each word, wrap each letter in a span
-                for (let word of words) {
-                    //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-            
-                    // Wrap another span around each word, add word to header
-                    this.innerHTML += '<span class="word">' + word + '</span>';
-                }
+    return new Promise(resolve, reject => {
+        fetch('/api/sentence').then( response => { 
+            return response.json();
+        }).then( json => {
+            console.log(json);
+            // Assigns return json values grid items
+            // Checks for null return value and remove 
+            if (json.adjectives != "null") {
+                $(".grid-item#adjective > h1").html(json.adjectives);
+            } else {
+                $(".grid-item#adjective").remove()
             }
+            if (json.animals != "null") {
+                $(".grid-item#animal > h1").html(json.animals);
+            } else {
+                $(".grid-item#animal").remove()
+            }
+            if (json.colors != "null") {
+                $(".grid-item#color > h1").html(json.colors);
+            } else {
+                $(".grid-item#color").remove()
+            }
+            if (json.locations != "null") {
+                $(".grid-item#location > h1").html(json.locations);
+            } else {
+                $(".grid-item#location").remove()
+            }
+    
+            // Wrap every word in a span for animation  
+            $('.sentence').each(function() {
+                let text = $(this).text();
+                if (text) { // Check if text is not empty
+                    let words = text.split(' ');
+    
+                    // Clear current element
+                    this.innerHTML = '';
+                
+                    // Loop through each word, wrap each letter in a span
+                    for (let word of words) {
+                        //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+                
+                        // Wrap another span around each word, add word to header
+                        this.innerHTML += '<span class="word">' + word + '</span>';
+                    }
+                }
+            });
         });
-
-        // Run the sentence entry animation
-        wordAnimation();
-    });
+    })
 }
 
 // Example POST method implementation:
