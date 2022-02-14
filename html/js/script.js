@@ -6,7 +6,7 @@ var ready = (callback) => {
 }
   
 ready(() => { 
-    getSentence();
+    
 });
 
 
@@ -123,6 +123,7 @@ function animateBackground(){
     var bg = document.querySelector('.bg');
     bg.addEventListener('animationend', () => {
         document.querySelector('.logos').classList.add("fadein")
+        getSentence();
     });
     bg.classList.add("fadein");
 }
