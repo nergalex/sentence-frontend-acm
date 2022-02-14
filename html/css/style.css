@@ -9,15 +9,17 @@ body {
 }
 
 .bg {
-  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed;
+  /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed; */
   /* background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); */
-  background-size: cover;
-  background-blend-mode: hard-light;
+  /* background-size: cover; */
+  /* background-blend-mode: hard-light; */
   position: absolute;
-  height: 100%;
+  left: 0;
+  top: 0;
+  height: auto;
   width: 100%;
   z-index: -1;
-  display: none;
+  opacity: 0;
 }
 
 .inputBox {
