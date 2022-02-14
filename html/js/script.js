@@ -124,7 +124,7 @@ function getBackground(){
     bg.addEventListener('animationend', () => {
         console.log("element has faded out...");
     });
-    bg.classList.add("fadeout");
+    bg.classList.add("fadein");
 }
 
 // Fetches sentence from generator
