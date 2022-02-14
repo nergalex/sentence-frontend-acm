@@ -6,7 +6,8 @@ var ready = (callback) => {
 }
   
 ready(() => { 
-    
+    var bg = document.querySelector('.bg img');
+    bg.onload(animateBackground());
 });
 
 

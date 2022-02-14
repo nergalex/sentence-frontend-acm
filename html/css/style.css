@@ -194,7 +194,7 @@ footer .logos{
   bottom: 0;
   display:table;
   border-collapse: collapse;
-
+  opacity: 0;
 }
 
 footer .logos .img {
@@ -347,7 +347,7 @@ footer .logos img {
 
 .fadein {
   animation-name: fadein;
-  animation-duration: 1s;
+  animation-duration: 1500ms;
 	animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
