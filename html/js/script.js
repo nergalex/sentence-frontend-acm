@@ -45,8 +45,8 @@ ready(() => {
         icon.addEventListener("mouseover", function(){
             this.classList.add("mouseover");
         });
-        icon.addEventListener("mouseout", (icon) => {
-            icon.classList.remove("mouseover");
+        icon.addEventListener("mouseout", (e) => {
+            e.currentTarget.classList.remove("mouseover");
         });
     })
 });
