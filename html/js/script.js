@@ -45,8 +45,8 @@ ready(() => {
         icon.addEventListener("mouseover", function(){
             this.classList.add("mouseover");
         });
-        icon.addEventListener("mouseout", () => {
-            icon.classList.remove("mouseover");
+        icon.addEventListener("mouseout", function() {
+            this.classList.remove("mouseover");
         });
     })
 });
@@ -147,10 +147,8 @@ async function getSentence(){
             // Checks for null return value and remove 
             if (json.adjectives != "null") {
                 document.querySelector('.grid-item#adjective > h1').innerHTML = json.adjectives;
-                // $(".grid-item#adjective > h1").html(json.adjectives);
             } else {
                 document.querySelector('.grid-item#adjective').remove();
-                // $(".grid-item#adjective").remove();
             }
             if (json.animals != "null") {
                 document.querySelector(".grid-item#animal > h1").innerHTML = json.animals;
@@ -169,8 +167,8 @@ async function getSentence(){
             }
     
             // Wrap every word in a span for animation  
-            $('.sentence').each(function() {
-                let text = $(this).text();
+            document.querySelectorAll('.sentence').forEach(function() {
+                let text = this.textContent;
                 if (text) { // Check if text is not empty
                     let words = text.split(' ');
     
