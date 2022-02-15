@@ -144,7 +144,7 @@ async function animateLogos(){
 }
 
 let fadeInBgElements = async () => {
-    await waitForBackground().then(animateBackground());
+    await waitForBackground().then(await animateBackground());
     //await animateBackground();
     //await animateLogos();
 }
@@ -304,4 +304,4 @@ function sanitizeString(str){
     str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
     return str.trim();
 } 
-  
+
