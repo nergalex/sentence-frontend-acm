@@ -123,26 +123,12 @@ async function waitForBackground() {
 
 async function animateBackground(){
     const el = document.querySelector('.bg')
-    await onceAnimationEnd(el, 'fadein 2s forwards ease-out')
-    // return new Promise( resolve => {
-    //     var bg = document.querySelector('.bg');
-    //     bg.addEventListener('animationend', () => {
-    //         console.log("bg Animated");
-    //         resolve()
-    //     });
-    //     bg.classList.add("fadein");
-    // });
+    await onceAnimationEnd(el, 'fadein 2s forwards ease-out').then(() => console.log("Background animated"))
 }
 
 async function animateLogos(){
-    return new Promise(resolve => {
-        var logos = document.querySelector('.logos');
-        logos.addEventListener('animationend', () =>{
-            console.log("Logos Animated");
-            resolve()
-        });
-        logos.classList.add("fadein");
-    });
+    const el = document.querySelector('.logos')
+    await onceAnimationEnd(el, 'fadein 2s forwards ease-out').then(() => console.log("Logos animated"))
 }
 
 let fadeInBgElements = async () => {
@@ -159,9 +145,11 @@ async function getSentence(){
             // Assigns return json values grid items
             // Checks for null return value and remove 
             if (json.adjectives != "null") {
-                $(".grid-item#adjective > h1").html(json.adjectives);
+                document.querySelector('.grid-item#adjective > h1').html(json.adjectives);
+                // $(".grid-item#adjective > h1").html(json.adjectives);
             } else {
-                $(".grid-item#adjective").remove()
+                document.querySelector('.grid-item#adjective').remove();
+                // $(".grid-item#adjective").remove();
             }
             if (json.animals != "null") {
                 $(".grid-item#animal > h1").html(json.animals);
