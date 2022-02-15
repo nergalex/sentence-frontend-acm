@@ -40,23 +40,15 @@ ready(() => {
         }); 
     });
 
+    // Plus icon animation
     document.querySelectorAll('.plus-icon').forEach( icon => {
         icon.addEventListener("mouseover", function(){
             this.classList.add("mouseover");
         });
-        icon.addEventListener("mouseout", function() {
-            this.classList.remove("mouseover");
+        icon.addEventListener("mouseout", (icon) => {
+            icon.classList.remove("mouseover");
         });
     })
-
-    // // Plus icon animation
-    // document.querySelector(".plus-icon")
-    // .addEventListener("mouseover",function() {
-    //     this.stop().animate({fontSize: "40px"}, 200);
-    // })
-    // .addEventListener("mouseout",function() {
-    //     this.stop().animate({fontSize: "32px"}, 200);
-    // });
 });
 
 // Success or failure banner
@@ -154,26 +146,26 @@ async function getSentence(){
             // Assigns return json values grid items
             // Checks for null return value and remove 
             if (json.adjectives != "null") {
-                document.querySelector('.grid-item#adjective > h1').html(json.adjectives);
+                document.querySelector('.grid-item#adjective > h1').innerHTML = json.adjectives;
                 // $(".grid-item#adjective > h1").html(json.adjectives);
             } else {
                 document.querySelector('.grid-item#adjective').remove();
                 // $(".grid-item#adjective").remove();
             }
             if (json.animals != "null") {
-                $(".grid-item#animal > h1").html(json.animals);
+                document.querySelector(".grid-item#animal > h1").innerHTML = json.animals;
             } else {
-                $(".grid-item#animal").remove()
+                document.querySelector(".grid-item#animal").remove()
             }
             if (json.colors != "null") {
-                $(".grid-item#color > h1").html(json.colors);
+                document.querySelector(".grid-item#color > h1").innerHTML = json.colors;
             } else {
-                $(".grid-item#color").remove()
+                document.querySelector(".grid-item#color").remove()
             }
             if (json.locations != "null") {
-                $(".grid-item#location > h1").html(json.locations);
+                document.querySelector(".grid-item#location > h1").innerHTML= json.locations;
             } else {
-                $(".grid-item#location").remove()
+                document.querySelector(".grid-item#location").remove()
             }
     
             // Wrap every word in a span for animation  
