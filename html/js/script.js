@@ -6,9 +6,7 @@ var ready = (callback) => {
 }
   
 ready(() => { 
-    var bg = document.querySelector('.bg img');
-
-    var promises = [getSentence(), awaitBG() ];
+    let promises = [getSentence(), fadeInBgElements() ];
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
@@ -117,13 +115,13 @@ function wordAnimation(){
     });
 }
 
-function waitForBackground(bg) {
+async function waitForBackground() {
     return new Promise(function(resolve, reject) {
-        bg.onload = resolve();
+        document.querySelector('.bg img').onload = resolve();
     });
 }
 
-function animateBackground(){
+async function animateBackground(){
     return new Promise( resolve => {
         var bg = document.querySelector('.bg');
         bg.addEventListener('animationend', () => {
@@ -132,18 +130,9 @@ function animateBackground(){
         });
         bg.classList.add("fadein");
     });
-    // Loads the background async
-    // $('<img/>').attr('src', '/api/backgrounds').on('load', function() {
-    //     $(this).remove(); // prevent memory leaks as @benweet suggested 
-    //     $('.bg').css('background', 'linear-gradient(to top right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(/api/backgrounds) no-repeat center center fixed');
-    //     $('.bg').css('background-size', 'cover');
-    //     $('.bg').fadeIn(1000, function(){
-    //         $('.logos').fadeIn(1000)   
-    //     });
-    // });
 }
 
-function animateLogos(){
+async function animateLogos(){
     return new Promise(resolve => {
         var logos = document.querySelector('.logos');
         logos.addEventListener('animationend', () =>{
@@ -154,13 +143,15 @@ function animateLogos(){
     });
 }
 
-async function awaitBG(){
-    return await waitForBackground().then(animateBackground()).then(animateLogos())   
+let fadeInBgElements = async () => {
+    await waitForBackground();
+    await animateBackground();
+    await animateLogos();
 }
 
 // Fetches sentence from generator
 async function getSentence(){
-    return fetch('/api/sentence').then( response => { 
+    await fetch('/api/sentence').then( response => { 
             return response.json();
         }).then( json => {
             console.log(json);
