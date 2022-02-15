@@ -6,7 +6,7 @@ var ready = (callback) => {
 }
   
 ready(() => { 
-    let promises = [getSentence(), fadeInBgElements() ];
+    let promises = [getSentence(), fadeInBgElements()];
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
@@ -124,7 +124,7 @@ async function waitForBackground() {
 
 async function animateBackground(){
     return new Promise( resolve => {
-        var bg = document.querySelector('.bg img');
+        var bg = document.querySelector('.bg');
         bg.addEventListener('animationend', () => {
             console.log("bg Animated");
             resolve()
@@ -145,8 +145,8 @@ async function animateLogos(){
 }
 
 let fadeInBgElements = async () => {
-    await waitForBackground();
-    await animateBackground();
+    await waitForBackground().then(animateBackground());
+    //await animateBackground();
     //await animateLogos();
 }
 
