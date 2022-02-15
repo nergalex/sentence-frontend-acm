@@ -11,6 +11,7 @@ ready(() => {
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
         // Run the sentence entry animation
+        animateLogos();
         wordAnimation();
     });
 });
@@ -123,7 +124,7 @@ async function waitForBackground() {
 
 async function animateBackground(){
     return new Promise( resolve => {
-        var bg = document.querySelector('.bg');
+        var bg = document.querySelector('.bg img');
         bg.addEventListener('animationend', () => {
             console.log("bg Animated");
             resolve()
@@ -146,7 +147,7 @@ async function animateLogos(){
 let fadeInBgElements = async () => {
     await waitForBackground();
     await animateBackground();
-    await animateLogos();
+    //await animateLogos();
 }
 
 // Fetches sentence from generator
