@@ -55,14 +55,14 @@ ready(() => {
         });
     })
 
-    // Plus icon animation
-    document.querySelector(".plus-icon")
-    .addEventListener("mouseover",function() {
-        this.stop().animate({fontSize: "40px"}, 200);
-    })
-    .addEventListener("mouseout",function() {
-        this.stop().animate({fontSize: "32px"}, 200);
-    });
+    // // Plus icon animation
+    // document.querySelector(".plus-icon")
+    // .addEventListener("mouseover",function() {
+    //     this.stop().animate({fontSize: "40px"}, 200);
+    // })
+    // .addEventListener("mouseout",function() {
+    //     this.stop().animate({fontSize: "32px"}, 200);
+    // });
 });
 
 // Success or failure banner
