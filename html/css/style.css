@@ -359,8 +359,11 @@ footer .logos img {
 
 .spinner {
   position: absolute;
-  bottom: 0;
-  right: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: none;
 }
 
 .lds-ellipsis {

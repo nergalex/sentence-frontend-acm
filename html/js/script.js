@@ -10,6 +10,7 @@ ready(() => {
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
+        document.querySelector('.spinner').style.display = 'none'
         // Run the sentence entry animation
         animateLogos();
         wordAnimation();
@@ -151,6 +152,7 @@ let fadeInBgElements = async () => {
 
 // Fetches sentence from generator
 async function getSentence(){
+    document.querySelector('.spinner').style.display = 'block'
     await fetch('/api/sentence').then( response => { 
             return response.json();
         }).then( json => {
