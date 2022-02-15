@@ -41,11 +41,11 @@ ready(() => {
     });
 
     document.querySelectorAll('.plus-icon').forEach( icon => {
-        icon.addEventListener("mouseover", () => {
+        icon.addEventListener("mouseover", function(){
             this.classList.add("mouseover");
         });
-        icon.addEventListener("mouseout", () => {
-            this.classList.remove("mouseover");
+        icon.addEventListener("mouseout", icon => {
+            icon.classList.remove("mouseover");
         });
     })
 
