@@ -10,9 +10,8 @@ ready(() => {
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
-        document.querySelector('.spinner').classList.add('fadeout');
+        document.querySelector('.spinner#sentence').classList.add('fadeout');
         // Run the sentence entry animation
-        animateLogos();
         wordAnimation();
     });
 
@@ -145,14 +144,12 @@ async function animateLogos(){
 }
 
 let fadeInBgElements = async () => {
-    await waitForBackground().then(await animateBackground());
-    //await animateBackground();
-    //await animateLogos();
+    await waitForBackground().then(await animateBackground()).then(animateLogos());
 }
 
 // Fetches sentence from generator
 async function getSentence(){
-    document.querySelector('.spinner').style.display = 'block'
+    document.querySelector('.spinner#sentence').style.display = 'block';
     await fetch('/api/sentence').then( response => { 
             return response.json();
         }).then( json => {
@@ -253,10 +250,12 @@ function showPrompt(text, word, post_uri, callback){
             return false;
         }
 
+        document.querySelector('.spinner#post').style.display = 'block';
         //posts data to generator
         postData(post_uri, { "value": value })
             .then(data => {
                 console.log(data); // JSON data parsed by `data.json()` call
+                document.querySelector('.spinner#post').classList.add('fadeout')
                 if (data.accepted == "true") {
                     console.log("accepted");
                     showBanner(data.info, data.value, true);

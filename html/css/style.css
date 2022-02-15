@@ -334,7 +334,7 @@ footer .logos img {
 
 .fadeout {
   animation-name: fadeout;
-  animation-duration: 1s;
+  animation-duration: 500ms;
 	animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -358,13 +358,19 @@ footer .logos img {
 
 /* Spinner */
 
-.spinner {
+.spinner#sentence{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 1;
-  display: none;
+}
+
+.spinner#post{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .lds-ellipsis {
