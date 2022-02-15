@@ -16,37 +16,37 @@ ready(() => {
     });
 
     // Handlers for plus icons to show input prompt
-    $(".grid-item#adjective > .plus-icon").click(function () {
+    document.querySelector(".grid-item#adjective > .plus-icon").click(function () {
         showPrompt("Add an adjective", "adjective", "/api/sentence/adjectives", function(value) {
             console.log("entered " + value);
         });
     });
 
-    $(".grid-item#animal > .plus-icon").click(function () {
+    document.querySelector(".grid-item#animal > .plus-icon").click(function () {
         showPrompt("Add an animal", "animal", "/api/sentence/animals", function(value) {
             console.log("entered " + value);
         }); 
     });
 
-    $(".grid-item#color > .plus-icon").click(function () {
+    document.querySelector(".grid-item#color > .plus-icon").click(function () {
         showPrompt("Add an color", "color", "/api/sentence/colors", function(value) {
             console.log("entered " + value);
         }); 
     });
 
-    $(".grid-item#location > .plus-icon").click(function () {
+    document.querySelector(".grid-item#location > .plus-icon").click(function () {
         showPrompt("Add an location", "location", "/api/sentence/locations", function(value) {
             console.log("entered " + value);
         }); 
     });
 
     // Plus icon animation
-    $( ".plus-icon" )
+    document.querySelector(".plus-icon")
     .mouseover(function() {
-        $( this ).stop().animate({fontSize: "40px"}, 200);
+        this.stop().animate({fontSize: "40px"}, 200);
     })
     .mouseout(function() {
-        $( this ).stop().animate({fontSize: "32px"}, 200);
+        this.stop().animate({fontSize: "32px"}, 200);
     });
 });
 
@@ -122,7 +122,7 @@ async function waitForBackground() {
 }
 
 async function animateBackground(){
-    const el = document.querySelector('.bg')
+    const el = document.querySelector('.bg img')
     await onceAnimationEnd(el, 'fadein 2s forwards ease-out').then(() => console.log("Background animated"))
 }
 
