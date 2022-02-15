@@ -10,7 +10,7 @@ ready(() => {
     
     Promise.all(promises).then(() => {
         console.log("Both Promises done");
-        document.querySelector('.spinner').style.display = 'none'
+        document.querySelector('.spinner').classList.add('fadeout');
         // Run the sentence entry animation
         animateLogos();
         wordAnimation();
