@@ -79,7 +79,7 @@ function bannerAnimation(){
         targets: '.success-banner',
         easing: "easeOutExpo",
         duration: 1500,
-        delay: 1000,
+        delay: 0,
         endDelay: 5000,
         loop: false
     }).add({
@@ -122,14 +122,16 @@ async function waitForBackground() {
 }
 
 async function animateBackground(){
-    return new Promise( resolve => {
-        var bg = document.querySelector('.bg');
-        bg.addEventListener('animationend', () => {
-            console.log("bg Animated");
-            resolve()
-        });
-        bg.classList.add("fadein");
-    });
+    const el = document.querySelector('.bg')
+    await onceAnimationEnd(el, 'fadein 2s forwards ease-out')
+    // return new Promise( resolve => {
+    //     var bg = document.querySelector('.bg');
+    //     bg.addEventListener('animationend', () => {
+    //         console.log("bg Animated");
+    //         resolve()
+    //     });
+    //     bg.classList.add("fadein");
+    // });
 }
 
 async function animateLogos(){
@@ -306,3 +308,14 @@ function sanitizeString(str){
     return str.trim();
 } 
 
+// We can declare a generic helper method for one-time animationend listening
+let onceAnimationEnd = (el, animation) => {
+    return new Promise(resolve => {
+        const onAnimationEndCb = () => {
+        el.removeEventListener('animationend', onAnimationEndCb);
+        resolve();
+        }
+        el.addEventListener('animationend', onAnimationEndCb)
+        el.style.animation = animation;
+    });
+}
