@@ -40,6 +40,21 @@ ready(() => {
         }); 
     });
 
+    document.querySelectorAll('.plus-icon').forEach( icon => {
+        icon.addEventListener("mouseover", () => {
+            this.animate([
+                { fontSize: "32px"},
+                { fontSize: "40px"}
+            ], {
+                duration: 200,
+                iterations: 1
+            });
+        });
+        icon.addEventListener("mouseout", () => {
+
+        });
+    })
+
     // Plus icon animation
     document.querySelector(".plus-icon")
     .addEventListener("mouseover",function() {
