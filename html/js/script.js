@@ -207,6 +207,7 @@ async function getSentence () {
       // Wrap every word in a span for animation
       document.querySelectorAll('.sentence').forEach(function () {
         let text = this.textContent
+        console.log(text)
         if (text) {
           // Check if text is not empty
           let words = text.split(' ')
