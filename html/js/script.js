@@ -100,7 +100,6 @@ function showBanner (message, word, success) {
 
 function bannerAnimation () {
   console.log('bannerAnimation')
-  // document.querySelector('.success-banner').style.display = 'block'
 
   let bannerTimeline = anime.timeline({
     targets: '.success-banner',
@@ -122,7 +121,7 @@ function bannerAnimation () {
 
 function wordAnimation () {
   console.log('Word animation')
-  // document.querySelector('.sentence').style.display = 'block'
+  document.querySelector('.grid').classList.toggle('hide')
 
   let animTimeline = anime.timeline({
     loop: false
