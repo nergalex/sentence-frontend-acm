@@ -75,9 +75,16 @@ ready(() => {
 
 // Success or failure banner
 function showBanner (message, word, success) {
-  $('.success-banner').removeClass('success failure')
-  $('#success-banner-message').html('')
-  $('#success-banner-image').removeClass()
+  // $('.success-banner').removeClass('success failure')
+  // $('#success-banner-message').html('')
+  // $('#success-banner-image').removeClass()
+  let successBannerMessage = document.querySelector('#success-banner-message')
+  let successBannerImage = document.querySelector('#success-banner-image')
+  let successBanner = document.querySelector('.success-banner')
+
+  successBannerMessage.innerHTML = ''
+  successBannerImage.className = ''
+  successBanner.classList.remove('success failure')
 
   if (success) {
     $('.success-banner').addClass('success')
