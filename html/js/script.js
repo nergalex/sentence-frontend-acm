@@ -207,21 +207,19 @@ async function getSentence () {
       // Wrap every word in a span for animation
       document.querySelectorAll('.sentence').forEach(sentence => {
         let text = sentence.textContent
-        console.log('textcontent ' + text)
-        console.log('innerText ' + sentence.innerText)
         if (text) {
           // Check if text is not empty
           let words = text.split(' ')
 
           // Clear current element
-          this.innerHTML = ''
+          sentence.innerHTML = ''
 
           // Loop through each word, wrap each letter in a span
           for (let word of words) {
             //let word_split = word.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
 
             // Wrap another span around each word, add word to header
-            this.innerHTML += '<span class="word">' + word + '</span>'
+            sentence.innerHTML += '<span class="word">' + word + '</span>'
           }
         }
       })
