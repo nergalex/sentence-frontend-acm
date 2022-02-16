@@ -257,9 +257,7 @@ function showPrompt (text, word, post_uri, callback) {
   form.text.value = ''
 
   function complete (value) {
-    onceAnimationEnd(container, 'fadeOut 200ms forwards').then(() =>
-      container.classList.add('hide')
-    )
+    onceAnimationEnd(container, 'fadeout 200ms forwards')
     document.onkeydown = null
     callback(value)
   }
