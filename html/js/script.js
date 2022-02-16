@@ -84,7 +84,7 @@ function showBanner (message, word, success) {
 
   successBannerMessage.innerHTML = ''
   successBannerImage.className = ''
-  successBanner.classList.remove('success failure')
+  successBanner.classList.remove('success', 'failure')
 
   if (success) {
     $('.success-banner').addClass('success')
