@@ -87,12 +87,12 @@ function showBanner (message, word, success) {
     successBanner.classList.add('success')
     successBannerMessage.innerHTML =
       'Success! Your word ' + word + ' was added!' + message
-    successBannerImage.classList.add('fas fa-check-circle')
+    successBannerImage.classList.add('fas', 'fa-check-circle')
   } else {
     successBanner.classList.add('failure')
     successBannerMessage.innerHTML =
       'Failure! Your word ' + word + ' was not added! ' + message
-    successBannerImage.classList.add('fas fa-times-circle')
+    successBannerImage.classList.add('fas', 'fa-times-circle')
   }
 
   bannerAnimation()
