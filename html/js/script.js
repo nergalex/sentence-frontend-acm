@@ -322,7 +322,9 @@ function showPrompt (text, word, post_uri, callback) {
     }
   }
 
-  $('#prompt-form-container').fadeIn(200)
+  container.classList.toggle('hide')
+  onceAnimationEnd(container, 'fadein 200ms forwards')
+  // $('#prompt-form-container').fadeIn(200)
   form.elements.text.focus()
 }
 
