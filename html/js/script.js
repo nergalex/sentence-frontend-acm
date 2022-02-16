@@ -75,9 +75,6 @@ ready(() => {
 
 // Success or failure banner
 function showBanner (message, word, success) {
-  // $('.success-banner').removeClass('success failure')
-  // $('#success-banner-message').html('')
-  // $('#success-banner-image').removeClass()
   let successBannerMessage = document.querySelector('#success-banner-message')
   let successBannerImage = document.querySelector('#success-banner-image')
   let successBanner = document.querySelector('.success-banner')
@@ -87,17 +84,15 @@ function showBanner (message, word, success) {
   successBanner.classList.remove('success', 'failure')
 
   if (success) {
-    $('.success-banner').addClass('success')
-    $('#success-banner-message').html(
+    successBanner.classList.add('success')
+    successBannerMessage.innerHTML =
       'Success! Your word ' + word + ' was added!' + message
-    )
-    $('#success-banner-image').addClass('fas fa-check-circle')
+    successBannerImage.classList.add('fas fa-check-circle')
   } else {
-    $('.success-banner').addClass('failure')
-    $('#success-banner-message').html(
+    successBanner.classList.add('failure')
+    successBannerMessage.innerHTML =
       'Failure! Your word ' + word + ' was not added! ' + message
-    )
-    $('#success-banner-image').addClass('fas fa-times-circle')
+    successBannerImage.classList.add('fas fa-times-circle')
   }
 
   bannerAnimation()
