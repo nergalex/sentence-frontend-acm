@@ -100,7 +100,7 @@ function showBanner (message, word, success) {
 
 function bannerAnimation () {
   console.log('bannerAnimation')
-  $('.success-banner').show()
+  document.querySelector('.success-banner').style.display = 'block'
 
   let bannerTimeline = anime.timeline({
     targets: '.success-banner',
@@ -122,7 +122,7 @@ function bannerAnimation () {
 
 function wordAnimation () {
   console.log('Word animation')
-  $('.sentence').show()
+  document.querySelector('.sentence').style.display = 'block'
 
   let animTimeline = anime.timeline({
     loop: false
@@ -252,9 +252,9 @@ async function postData (url = '', data = {}) {
 function showPrompt (text, word, post_uri, callback) {
   let form = document.getElementById('prompt-form')
   let container = document.getElementById('prompt-form-container')
-  $('#prompt-message').html(text)
-  $('.info').html('')
-  $('.inputBox').removeClass('input-error')
+  document.getElementById('prompt-message').innerHTML = text
+  document.getElementById('prompt-info').innerHTML = ''
+  form.submit.classList.remove('input-error')
   form.text.value = ''
 
   function complete (value) {
