@@ -9,6 +9,14 @@ body {
   font-weight: 600;
 }
 
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 .bg {
   display: flex;
   position: fixed;
@@ -120,7 +128,7 @@ body {
 }
 
 .success-banner {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 0;
   width: 100%;
@@ -166,7 +174,7 @@ body {
 }
 
 .sentence {
-  display: none;
+  /* display: none; */
   font-family: 'Lobster', cursive;
   font-size: 48px;
   text-align: center;
@@ -184,7 +192,7 @@ body {
   opacity: 0;
 }
 
-.grid-item#adjective > h1.sentence {
+.grid-item:first-child > h1.sentence {
   text-transform: capitalize;
 }
 
