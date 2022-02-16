@@ -257,7 +257,9 @@ function showPrompt (text, word, post_uri, callback) {
   form.text.value = ''
 
   function complete (value) {
-    $('#prompt-form-container').fadeOut(200)
+    onceAnimationEnd(container, 'fadeOut 200ms forwards').then(() =>
+      container.classList.add('hide')
+    )
     document.onkeydown = null
     callback(value)
   }
@@ -322,7 +324,7 @@ function showPrompt (text, word, post_uri, callback) {
     }
   }
 
-  container.classList.toggle('hide')
+  container.classList.remove('hide')
   onceAnimationEnd(container, 'fadein 200ms forwards')
   // $('#prompt-form-container').fadeIn(200)
   form.elements.text.focus()
