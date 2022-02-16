@@ -100,15 +100,16 @@ function bannerAnimation () {
   console.log('bannerAnimation')
   $('.success-banner').show()
 
-  anime
-    .timeline({
-      targets: '.success-banner',
-      easing: 'easeOutExpo',
-      duration: 1500,
-      delay: 0,
-      endDelay: 5000,
-      loop: false
-    })
+  let bannerTimeline = anime.timeline({
+    targets: '.success-banner',
+    easing: 'easeOutExpo',
+    duration: 1500,
+    delay: 0,
+    endDelay: 5000,
+    loop: false
+  })
+
+  bannerTimeline
     .add({
       translateY: ['-100%', '0%']
     })
@@ -121,7 +122,7 @@ function wordAnimation () {
   console.log('Word animation')
   $('.sentence').show()
 
-  var animTimeline = anime.timeline({
+  let animTimeline = anime.timeline({
     loop: false
   })
 
