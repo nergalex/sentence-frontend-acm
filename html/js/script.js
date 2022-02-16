@@ -249,39 +249,45 @@ async function postData (url = '', data = {}) {
 
 // Show input prompt
 function showPrompt (text, word, post_uri, callback) {
-  let form = document.getElementById('prompt-form')
-  let container = document.getElementById('prompt-form-container')
-  document.getElementById('prompt-message').innerHTML = text
-  document.getElementById('prompt-info').innerHTML = ''
+  const form = document.getElementById('prompt-form')
+  const container = document.getElementById('prompt-form-container')
+  const message = document.getElementById('prompt-message')
+  const info = document.getElementById('prompt-info')
+  const spinner = document.querySelector('.spinner#post')
+
+  message.innerHTML = text
+  info.innerHTML = ''
   form.submit.classList.remove('input-error')
   form.text.value = ''
 
   function complete (value) {
-    onceAnimationEnd(container, 'fadeout 200ms forwards')
+    onceAnimationEnd(container, 'fadeout 200ms forwards').then(() =>
+      container.classList.add('hide')
+    )
     document.onkeydown = null
     callback(value)
   }
 
   form.onsubmit = function (event) {
     console.log('submit')
-    $('.info').html('')
-    $('.inputBox').removeClass('input-error')
+    info.innerHTML = ''
+    form.text.classList.remove('input-error')
 
     let value = form.text.value
 
     value = sanitizeString(value)
     console.log(value)
     if (value == '') {
-      $('.info').html('Required')
-      $('.inputBox').addClass('input-error')
+      form.innerHTML = 'Required'
+      form.text.classList.add('input-error')
       return false
     }
 
-    document.querySelector('.spinner#post').style.display = 'block'
+    spinner.classList.remove('hide')
     //posts data to generator
     postData(post_uri, { value: value }).then(data => {
       console.log(data) // JSON data parsed by `data.json()` call
-      document.querySelector('.spinner#post').style.display = 'none'
+      spinner.classList.add('hide')
       if (data.accepted == 'true') {
         console.log('accepted')
         showBanner(data.info, data.value, true)
@@ -324,7 +330,6 @@ function showPrompt (text, word, post_uri, callback) {
 
   container.classList.remove('hide')
   onceAnimationEnd(container, 'fadein 200ms forwards')
-  // $('#prompt-form-container').fadeIn(200)
   form.elements.text.focus()
 }
 
