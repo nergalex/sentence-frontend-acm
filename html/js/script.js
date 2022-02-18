@@ -152,7 +152,7 @@ async function waitForBackground () {
 
 async function animateBackground () {
   const el = document.querySelector('.bg img')
-  await onceAnimationEnd(el, 'fadein 2s forwards ease-out').then(() =>
+  await onceAnimationEnd(el, 'fadein 3s forwards ease-out').then(() =>
     console.log('Background animated')
   )
 }
