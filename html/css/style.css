@@ -62,6 +62,16 @@ body {
   padding: 15px;
 }
 
+.site_env {
+  position: absolute;
+  right: 0;
+  font-size: 32px;
+  line-height: 32px !important;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+
 .popup {
   position: absolute;
   top: 0px;

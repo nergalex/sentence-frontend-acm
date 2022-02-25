@@ -58,8 +58,11 @@
     </div>
 
     <div class="site-env">
+      <!--# if expr="$site_env_var = aws"-->
       <i class="plus-icon fab fa-aws"></i>
-      <h1><!--#echo var="testvar"--></h1>
+      <!--# elif expr="$site_env_var = microsoft" -->
+      <i class="plus-icon fab fa-aws"></i>
+      <!--# endif -->
     </div>
 
     <div class="grid hide">

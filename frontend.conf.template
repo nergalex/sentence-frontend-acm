@@ -8,7 +8,8 @@ server {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
         ssi on;
-        set $testvar "AZURE";
+        
+        set $site_env_var ${SITE_ENV};
     }
     
     location /api/sentence {
