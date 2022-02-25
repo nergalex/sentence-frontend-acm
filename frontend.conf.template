@@ -10,7 +10,7 @@ server {
         ssi on;
         
         set $site_env ${SITE_ENV};
-        set $site_env_message ${SITE_ENV_MESSAGE}
+        set $site_env_message ${SITE_ENV_MESSAGE};
     }
     
     location /api/sentence {
