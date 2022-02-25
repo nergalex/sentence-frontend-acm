@@ -58,6 +58,10 @@
     </div>
 
     <div class="site-env">
+      <!--# if expr="$site_env_message != null"-->
+      <span><!--#echo var="site_env_message" --></span>
+      <!--# endif -->
+
       <!--# if expr="$site_env = aws"-->
       <i class="fab fa-aws"></i>
       <!--# elif expr="$site_env = microsoft" -->
@@ -69,10 +73,6 @@
       <!--# elif expr="$site_env = server" -->
       <i class="fas fa-server"></i>
       <!--# else -->
-      <!--# endif -->
-
-      <!--# if expr="$site_env_message != null"-->
-      <span><!--#echo var="site_env_message" --></span>
       <!--# endif -->
     </div>
 
