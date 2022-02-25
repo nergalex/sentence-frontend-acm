@@ -58,7 +58,6 @@
     </div>
 
     <div class="site-env">
-      <!--# if expr="$site_env != null"-->
       <!--# if expr="$site_env = aws"-->
       <i class="fab fa-aws"></i>
       <!--# elif expr="$site_env = microsoft" -->
@@ -70,9 +69,9 @@
         style="height: 50px; vertical-align: middle;"
         src="./images/f5.png"
       />
+      <!--# elif expr="$site_env != null" -->
       <!--# else -->
       <i class="fas fa-server"></i>
-      <!--# endif -->
       <!--# endif -->
 
       <!--# if expr="$site_env_message != null"-->
