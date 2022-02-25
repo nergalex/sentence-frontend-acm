@@ -58,6 +58,7 @@
     </div>
 
     <div class="site-env">
+      <!--# if expr="site_env != null"-->
       <!--# if expr="$site_env = aws"-->
       <i class="fab fa-aws"></i>
       <!--# elif expr="$site_env = microsoft" -->
@@ -70,9 +71,13 @@
         src="./images/f5.png"
       />
       <!--# else -->
-      <i class="fad fa-server"></i>
+      <i class="fas fa-server"></i>
       <!--# endif -->
+      <!--# endif -->
+
+      <!--# if expr="site_env_message != null"-->
       <span><!--#echo var="site_env_message" --></span>
+      <!--# endif -->
     </div>
 
     <div class="grid hide">
