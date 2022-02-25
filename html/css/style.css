@@ -62,14 +62,15 @@ body {
   padding: 15px;
 }
 
-.site_env {
+.site-env {
   position: absolute;
   right: 0;
-  font-size: 32px;
-  line-height: 32px !important;
+  font-size: 50px;
+  line-height: 50px !important;
   text-align: center;
   justify-content: center;
   color: white;
+  margin: 15px;
 }
 
 .popup {

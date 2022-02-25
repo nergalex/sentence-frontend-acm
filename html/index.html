@@ -58,11 +58,18 @@
     </div>
 
     <div class="site-env">
-      <!--# if expr="$site_env_var = aws"-->
-      <i class="plus-icon fab fa-aws"></i>
-      <!--# elif expr="$site_env_var = microsoft" -->
-      <i class="plus-icon fab fa-aws"></i>
+      <!--# if expr="$site_env = aws"-->
+      <i class="fab fa-aws"></i>
+      <!--# elif expr="$site_env = microsoft" -->
+      <i class="fab fa-aws"></i>
+      <!--# elif expr="$site_env = google" -->
+      <i class="fab fa-google"></i>
+      <!--# elif expr="$site_env = f5" -->
+      <img src="./images/f5.png" />
+      <!--# else -->
+      <i class="fad fa-server"></i>
       <!--# endif -->
+      <span><!--#echo $site_env_message --></span>
     </div>
 
     <div class="grid hide">
