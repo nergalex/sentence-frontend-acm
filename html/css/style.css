@@ -205,7 +205,7 @@ body {
 }
 
 .sentence .word {
-  display: inline-block;
+  display: inline;
   /*overflow: hidden;*/
   height: 1em;
   margin: 0 0.1em;
