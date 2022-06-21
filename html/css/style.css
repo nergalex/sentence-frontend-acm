@@ -195,6 +195,7 @@ body {
   align-content: center;
   height: 100%;
   grid-auto-flow: column;
+  gap: 10px;
 }
 
 .grid-item {
