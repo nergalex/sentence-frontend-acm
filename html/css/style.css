@@ -195,21 +195,20 @@ body {
 
 .sentence {
   /* display: none; */
-  font-family: 'Lobster', cursive;
-  font-size: 48px;
-  text-align: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.1), 5px 15px 5px rgba(0, 0, 0, 0.1),
-    -5px 15px 5px rgba(0, 0, 0, 0.1);
+
+  /* justify-content: center; */
 }
 
 .sentence .word {
   display: inline-block;
-  /*overflow: hidden;*/
-  height: 1em;
+  overflow: visible;
+  color: white;
+  text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.1), 5px 15px 5px rgba(0, 0, 0, 0.1),
+    -5px 15px 5px rgba(0, 0, 0, 0.1);
   margin: 0 0.1em;
   opacity: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 48px;
 }
 
 .grid-item:first-child > h1.sentence {
