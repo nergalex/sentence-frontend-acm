@@ -181,26 +181,27 @@ async function getSentence () {
       console.log(json)
       // Assigns return json values grid items
       // Checks for null return value and remove
-      if (json.adjectives != 'null') {
+      if (json.sentence.adjectives != 'null') {
         document.querySelector('.grid-item#adjective > h1').innerHTML =
-          json.adjectives
+          json.sentence.adjectives
       } else {
         document.querySelector('.grid-item#adjective').remove()
       }
-      if (json.animals != 'null') {
+      if (json.sentence.animals != 'null') {
         document.querySelector('.grid-item#animal > h1').innerHTML =
-          json.animals
+          json.sentence.animals
       } else {
         document.querySelector('.grid-item#animal').remove()
       }
-      if (json.colors != 'null') {
-        document.querySelector('.grid-item#color > h1').innerHTML = json.colors
+      if (json.sentence.colors != 'null') {
+        document.querySelector('.grid-item#color > h1').innerHTML =
+          json.sentence.colors
       } else {
         document.querySelector('.grid-item#color').remove()
       }
-      if (json.locations != 'null') {
+      if (json.sentence.locations != 'null') {
         document.querySelector('.grid-item#location > h1').innerHTML =
-          json.locations
+          json.sentence.locations
       } else {
         document.querySelector('.grid-item#location').remove()
       }
