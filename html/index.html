@@ -67,7 +67,11 @@
 
     <div class="site-env">
       <!--# if expr="$site_env_message != null"-->
-      <span><!--#echo var="site_env_message" --><!--#echo var="ves_io_sitename" --></span>
+      <span><!--#echo var="site_env_message" --></span>
+      <!--# endif -->
+
+      <!--# if expr="$ves_io_sitename != null"-->
+      <span><!--#echo var="ves_io_sitename" --></span>
       <!--# endif -->
 
       <!--# if expr="$site_env = aws"-->
