@@ -11,6 +11,8 @@ server {
         
         set $site_env ${SITE_ENV};
         set $site_env_message ${SITE_ENV_MESSAGE};
+        set $login_enabled ${LOGIN_ENABLED};
+        set $login_token ${LOGIN_TOKEN};
     }
     
     location /api/sentence {

@@ -14,6 +14,8 @@ RUN chmod -R 777 /etc/nginx
 
 ENV SITE_ENV null
 ENV SITE_ENV_MESSAGE null
+ENV LOGIN_ENABLED null
+ENV LOGIN_TOKEN null
 
 EXPOSE 8080  
 CMD ["nginx", "-g", "daemon off;"]

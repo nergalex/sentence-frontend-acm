@@ -56,6 +56,14 @@
         <input type="button" name="cancel" value="Cancel" class="button-4" />
       </form>
     </div>
+   
+    <!--# if expr="$login_enabled = true"-->    
+    <div class="login-button" data-token= "<!--#echo var='login_token'-->"  >
+      <a href="/login">
+        <i class="fas fa-sign-in-alt"></i>
+      </a>
+    </div>
+    <!--# endif -->
 
     <div class="site-env">
       <!--# if expr="$site_env_message != null"-->
@@ -123,5 +131,4 @@
       </div>
     </div>
   </footer>
-  <!-- <script type="text/javascript">if ( window.history.replaceState ) {window.history.replaceState( null, null, window.location.href );}</script> -->
 </html>
