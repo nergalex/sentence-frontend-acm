@@ -57,11 +57,18 @@
       </form>
     </div>
    
-    <!--# if expr="$login_enabled = true"-->    
-    <div class="login-button" data-token= "<!--#echo var='login_token'-->"  >
-      <a href="/login">
-        <i class="fas fa-sign-in-alt"></i>
-      </a>
+    <!--# if expr="$login_enabled = true"-->
+    <div class="login-button">
+      <div>
+        <a href="/login">
+          <i class="fas login fa-sign-in-alt"></i>
+        </a>
+      </div>
+      <div>
+        <a href="/logout">
+          <i class="fas logout fa-right-from-bracket"></i>
+        </a>
+      </div>
     </div>
     <!--# endif -->
 
