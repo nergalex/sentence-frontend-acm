@@ -353,17 +353,51 @@ let onceAnimationEnd = (el, animation) => {
   })
 }
 
+function getIdToken() {
+    // GET id_token in query parameter
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    if (params.id_token != "") {
+        console.log("id_token present")
+    } else {
+        console.log("id_token absent")
+    }
+    return params.id_token;
+}
+
 function checkAuthEnabled() {
   var els = document.getElementsByClassName('login-button')
 
+  // login mode enabled
   if(els.length > 0) {
-    console.log("Login enabled")
-    var token = els[0].getAttribute("data-token")
-    return checkCookie(token)
+    console.log("Login mode enabled");
+    var cookie_name = "sentence_session_token";
+
+    // set or refresh id_token
+    var id_token = getIdToken();
+    console.log("id_token: " + id_token);
+    if (id_token != null) {
+        setCookie(cookie_name, id_token, 1);
+        console.log("cookie " + cookie_name + " set")
+    }
+
+    // Authenticated user
+    var id_token = getCookie(cookie_name);
+    if (id_token != "") {
+        console.log("cookie " + cookie_name + " present");
+        return true;
+    }
+
+    // Not authenticated user
+    console.log("cookie " + cookie_name + " absent");
+    return false;
   }
+
+  // login mode disabled
   else{
-    console.log("login disabled")
-    return true
+    console.log("login mode disabled");
+    return true;
   }
 }
 
