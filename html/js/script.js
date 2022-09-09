@@ -22,7 +22,7 @@ ready(() => {
       showPrompt(
         'Add an adjective',
         'adjective',
-        '/api/ms-adjective/0.1/adjectives',
+        '/api/ms-adjectives/0.1/adjectives',
         function (value) {
           console.log('entered ' + value)
         }
@@ -32,7 +32,7 @@ ready(() => {
   document
     .querySelector('.grid-item#animal > .plus-icon')
     .addEventListener('click', function () {
-      showPrompt('Add an animal', 'animal', '/api/ms-animal/0.1/animals', function (
+      showPrompt('Add an animal', 'animal', '/api/ms-animals/0.1/animals', function (
         value
       ) {
         console.log('entered ' + value)
@@ -42,7 +42,7 @@ ready(() => {
   document
     .querySelector('.grid-item#color > .plus-icon')
     .addEventListener('click', function () {
-      showPrompt('Add an color', 'color', '/api/ms-color/0.1/colors', function (
+      showPrompt('Add an color', 'color', '/api/ms-colors/0.1/colors', function (
         value
       ) {
         console.log('entered ' + value)
@@ -55,7 +55,7 @@ ready(() => {
       showPrompt(
         'Add an location',
         'location',
-        '/api/ms-location/0.1/locations',
+        '/api/ms-locations/0.1/locations',
         function (value) {
           console.log('entered ' + value)
         }
