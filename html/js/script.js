@@ -22,7 +22,7 @@ ready(() => {
       showPrompt(
         'Add an adjective',
         'adjective',
-        '/api/sentence/adjectives',
+        '/api/sentence/adjectives/',
         function (value) {
           console.log('entered ' + value)
         }
@@ -32,7 +32,7 @@ ready(() => {
   document
     .querySelector('.grid-item#animal > .plus-icon')
     .addEventListener('click', function () {
-      showPrompt('Add an animal', 'animal', '/api/sentence/animals', function (
+      showPrompt('Add an animal', 'animal', '/api/sentence/animals/', function (
         value
       ) {
         console.log('entered ' + value)
@@ -42,7 +42,7 @@ ready(() => {
   document
     .querySelector('.grid-item#color > .plus-icon')
     .addEventListener('click', function () {
-      showPrompt('Add an color', 'color', '/api/sentence/colors', function (
+      showPrompt('Add an color', 'color', '/api/sentence/colors/', function (
         value
       ) {
         console.log('entered ' + value)
@@ -55,7 +55,7 @@ ready(() => {
       showPrompt(
         'Add an location',
         'location',
-        '/api/sentence/locations',
+        '/api/sentence/locations/',
         function (value) {
           console.log('entered ' + value)
         }
@@ -86,12 +86,12 @@ function showBanner (message, word, success) {
   if (success) {
     successBanner.classList.add('success')
     successBannerMessage.innerHTML =
-      'Success! Your word ' + word + ' was added!' + message
+      'Success! Your word ' + word + ' was added!'
     successBannerImage.classList.add('fas', 'fa-check-circle')
   } else {
     successBanner.classList.add('failure')
     successBannerMessage.innerHTML =
-      'Failure! Your word ' + word + ' was not added! ' + message
+      'Failure! Your word ' + word + ' was not added! '
     successBannerImage.classList.add('fas', 'fa-times-circle')
   }
 
@@ -291,7 +291,7 @@ function showPrompt (text, word, post_uri, callback) {
     postData(post_uri, { value: value }).then(data => {
       console.log(data) // JSON data parsed by `data.json()` call
       spinner.classList.add('hide')
-      if (data.accepted == 'true') {
+      if (data.value != '') {
         console.log('accepted')
         showBanner(data.info, data.value, true)
       } else {
