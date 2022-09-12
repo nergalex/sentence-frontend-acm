@@ -241,10 +241,9 @@ async function postData (url = '', data = {}) {
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
-      // NGINX workshop | copy your NGINX key
-      'apikey': 'myApiKey' // <--------- here
-      // NGINX workshop | copy your NGINX key
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      // NGINX workshop
+      'apikey': 'myApiKey' // <--------- copy you API Key here
+      // NGINX workshop
     },
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
