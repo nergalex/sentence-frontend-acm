@@ -242,7 +242,7 @@ async function postData (url = '', data = {}) {
     headers: {
       'Content-Type': 'application/json',
       // NGINX workshop
-      'apikey': 'myApiKey' // <--------- copy you API Key here
+      'apikey': 'myApiKey' // <--------- copy your API Key here
       // NGINX workshop
     },
     redirect: 'follow', // manual, *follow, error
