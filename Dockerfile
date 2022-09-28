@@ -17,10 +17,5 @@ ENV SITE_ENV_MESSAGE null
 ENV LOGIN_ENABLED null
 ENV LOGIN_TOKEN null
 
-# Bombardier
-RUN wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz && \
-    tar -xzf go1.19.1.linux-amd64.tar.gz && \
-    ./go/bin/go install github.com/codesenberg/bombardier@latest
-
 EXPOSE 8080  
 CMD ["nginx", "-g", "daemon off;"]
