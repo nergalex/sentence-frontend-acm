@@ -20,8 +20,8 @@ ENV LOGIN_TOKEN null
 # Bombardier
 RUN rm -rf /usr/local/go && \
     wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz && \
-    /usr/local/go/bin/go install github.com/codesenberg/bombardier@latest
+    tar -xzf go1.19.1.linux-amd64.tar.gz && \
+    ./go/bin/go install github.com/codesenberg/bombardier@latest
 
 EXPOSE 8080  
 CMD ["nginx", "-g", "daemon off;"]
